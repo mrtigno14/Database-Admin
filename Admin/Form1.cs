@@ -155,7 +155,6 @@ namespace Admin
                     {
                         MessageBox.Show("Login Successful!");
                         // Add code to navigate to the next screen or perform other actions after successful login
-                        // Open the selection form
                         // Open the selection form with placeholder values for username and password
                         SelectionForm selectionForm = new SelectionForm("username", "password");
                         selectionForm.Show();
