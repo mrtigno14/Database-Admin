@@ -17,8 +17,8 @@ namespace Admin
     {
         IFirebaseConfig config = new FirebaseConfig()
         {
-            AuthSecret = "6R9gVfx8BoxVn5pIx9jaLQ5Are0WTTfB8OwaNzos",
-            BasePath = "https://vending-machine-8d123-default-rtdb.firebaseio.com/",
+            AuthSecret = "imsTC4f93bN40grmNjB6Piyiq5tOaqRjVVeuOU42",
+            BasePath = "https://keywords-e2507-default-rtdb.firebaseio.com/",
         };
         IFirebaseClient client;
 
@@ -69,17 +69,17 @@ namespace Admin
         {
             try
             {
-                FirebaseResponse response = client.Get("Medicines/");
-                Dictionary<string, Medicines> getMedicines = response.ResultAs<Dictionary<string, Medicines>>();
+                FirebaseResponse response = client.Get("VendingMachine/");
+                Dictionary<string, VendingMachine> getMedicines = response.ResultAs<Dictionary<string, VendingMachine>>();
 
                 foreach (var get in getMedicines)
                 {
                     viewmedicine.Rows.Add(
                         get.Value.ID,
-                        get.Value.Name,
-                        get.Value.Price,
-                        get.Value.Quantity,
-                        get.Value.Purchased
+                        get.Value.itemName,
+                        get.Value.itemPrice,
+                        get.Value.itemQuantity,
+                        get.Value.itemSold
                         );
                 }
             }
@@ -100,18 +100,18 @@ namespace Admin
                 return; // Exit the method if any field is empty
             }
 
-            Medicines med = new Medicines()
+            VendingMachine med = new VendingMachine()
             {
                 ID = id.Text,
-                Name = name.Text,
-                Price = price.Text,
-                Quantity = quantity.Text,
-                Purchased = "XD"
+                itemName = name.Text,
+                itemPrice = price.Text,
+                itemQuantity = quantity.Text,
+                itemSold = "XD"
                 
 
             };
 
-            FirebaseResponse response = client.Set("Medicines/" + id.Text, med);
+            FirebaseResponse response = client.Set("VendingMachine/" + id.Text, med);
             MessageBox.Show("UGH");
 
             viewmedicine.DataSource = null;
@@ -122,7 +122,7 @@ namespace Admin
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            FirebaseResponse response = client.Delete("Medicines/" + id.Text);
+            FirebaseResponse response = client.Delete("VendingMachine/" + id.Text);
             MessageBox.Show("Nawala na sha :(");
             id.Text = string.Empty;
             name.Text = string.Empty;
@@ -144,18 +144,18 @@ namespace Admin
                 return; // Exit the method if any field is empty
             }
 
-            var med = new Medicines
+            var med = new VendingMachine
             {
                 ID = id.Text,
-                Name = name.Text,
-                Price = price.Text,
-                Quantity = quantity.Text,
-                Purchased = purchased.Text
+                itemName = name.Text,
+                itemPrice = price.Text,
+                itemQuantity = quantity.Text,
+                itemSold = purchased.Text
             };
 
             
 
-            FirebaseResponse response = client.Update("Medicines/" + id.Text, med);
+            FirebaseResponse response = client.Update("VendingMachine/" + id.Text, med);
             MessageBox.Show("MAGBAGO KA NA RIN");
             id.Text = string.Empty;
             name.Text = string.Empty;
@@ -171,16 +171,16 @@ namespace Admin
 
         private void retrieveButton_Click(object sender, EventArgs e)
         {
-            FirebaseResponse response = client.Get("Medicines/" + id.Text);
+            FirebaseResponse response = client.Get("VendingMachine/" + id.Text);
 
-            Medicines meds = response.ResultAs<Medicines>();
+            VendingMachine meds = response.ResultAs<VendingMachine>();
 
             if (id.Text.Equals(meds.ID))
             {
-                name.Text = meds.Name;
-                price.Text = meds.Price;
-                quantity.Text = meds.Quantity;
-                purchased.Text = meds.Purchased;
+                name.Text = meds.itemName;
+                price.Text = meds.itemPrice;
+                quantity.Text = meds.itemQuantity;
+                purchased.Text = meds.itemSold;
                 MessageBox.Show("HULI KA BOI");
 
             }
@@ -195,5 +195,27 @@ namespace Admin
             
             loadmedicines();*/
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            // Clear the username and password fields
+            username = "";
+            password = "";
+
+            // Close the current form and show the login form
+            Form1 loginForm = new Form1();
+            loginForm.Show();
+            this.Hide();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            // Close the current form and show the SelectinForm
+            SelectionForm selectionForm = new SelectionForm("username", "password");
+            selectionForm.Show();
+
+            this.Hide();
+        }
+
     }
 }

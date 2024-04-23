@@ -18,8 +18,8 @@ namespace Admin
     {
         private IFirebaseConfig config = new FirebaseConfig()
         {
-            AuthSecret = "6R9gVfx8BoxVn5pIx9jaLQ5Are0WTTfB8OwaNzos",
-            BasePath = "https://vending-machine-8d123-default-rtdb.firebaseio.com/",
+            AuthSecret = "imsTC4f93bN40grmNjB6Piyiq5tOaqRjVVeuOU42",
+            BasePath = "https://keywords-e2507-default-rtdb.firebaseio.com/",
         };
         private IFirebaseClient client;
 
@@ -155,9 +155,10 @@ namespace Admin
                     {
                         MessageBox.Show("Login Successful!");
                         // Add code to navigate to the next screen or perform other actions after successful login
-                        // Open the main application form and pass user information
-                        MainForm mainForm = new MainForm(enteredUsername, enteredPassword);
-                        mainForm.Show();
+                        // Open the selection form
+                        // Open the selection form with placeholder values for username and password
+                        SelectionForm selectionForm = new SelectionForm("username", "password");
+                        selectionForm.Show();
 
                         // Close the login form
                         this.Hide(); // or this.Close();
@@ -177,6 +178,7 @@ namespace Admin
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         private void AdminLogIn_Click(object sender, EventArgs e)
         {

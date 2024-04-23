@@ -54,6 +54,7 @@
             this.ProductDetailsPanel = new System.Windows.Forms.Panel();
             this.elipseControl1 = new ElipseToolDemo.ElipseControl();
             this.elipseControl2 = new ElipseToolDemo.ElipseControl();
+            this.backButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.viewmedicine)).BeginInit();
             this.panel1.SuspendLayout();
             this.ProductDetailsPanel.SuspendLayout();
@@ -248,6 +249,7 @@
             this.logoutButton.TabIndex = 16;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // purchased
             // 
@@ -303,12 +305,25 @@
             this.elipseControl2.CornerRadius = 35;
             this.elipseControl2.TargetControl = this.panel1;
             // 
+            // backButton
+            // 
+            this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(222)))), ((int)(((byte)(88)))));
+            this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(85, 30);
+            this.backButton.TabIndex = 21;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(84)))), ((int)(((byte)(134)))));
             this.ClientSize = new System.Drawing.Size(784, 441);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.ProductDetailsPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.logoutButton);
@@ -357,5 +372,6 @@
         private System.Windows.Forms.Panel ProductDetailsPanel;
         private ElipseToolDemo.ElipseControl elipseControl1;
         private ElipseToolDemo.ElipseControl elipseControl2;
+        private System.Windows.Forms.Button backButton;
     }
 }

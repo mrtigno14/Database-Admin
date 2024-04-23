@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Admin
 {
-    internal class Medicines
+    internal class VendingMachine
     {
 
         public string ID { get; set; }
-        public string Name { get; set; }
-        public string Price { get; set; }
-        public string Quantity { get; set; }
-        public string Purchased { get; set; }
+        public string itemName { get; set; }
+        public string itemPrice { get; set; }
+        public string itemQuantity { get; set; }
+        public string itemSold { get; set; }
 
     }
 }
