@@ -173,8 +173,17 @@ namespace Admin
         {
             FirebaseResponse response = client.Get("VendingMachine/" + id.Text);
 
+            // Check if the response is null
+            if (response == null || response.ResultAs<VendingMachine>() == null)
+            {
+                // Display a message indicating that the ID does not exist
+                MessageBox.Show("Item not found.");
+                return;
+            }
+
             VendingMachine meds = response.ResultAs<VendingMachine>();
 
+            // Perform further operations only if the response is not null
             if (id.Text.Equals(meds.ID))
             {
                 name.Text = meds.itemName;
@@ -182,10 +191,7 @@ namespace Admin
                 quantity.Text = meds.itemQuantity;
                 purchased.Text = meds.itemSold;
                 MessageBox.Show("HULI KA BOI");
-
             }
-
-            
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
