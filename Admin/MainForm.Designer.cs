@@ -52,9 +52,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ProductDetailsPanel = new System.Windows.Forms.Panel();
+            this.backButton = new System.Windows.Forms.Button();
             this.elipseControl1 = new ElipseToolDemo.ElipseControl();
             this.elipseControl2 = new ElipseToolDemo.ElipseControl();
-            this.backButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.viewmedicine)).BeginInit();
             this.panel1.SuspendLayout();
             this.ProductDetailsPanel.SuspendLayout();
@@ -295,16 +295,6 @@
             this.ProductDetailsPanel.Size = new System.Drawing.Size(214, 46);
             this.ProductDetailsPanel.TabIndex = 20;
             // 
-            // elipseControl1
-            // 
-            this.elipseControl1.CornerRadius = 30;
-            this.elipseControl1.TargetControl = this.ProductDetailsPanel;
-            // 
-            // elipseControl2
-            // 
-            this.elipseControl2.CornerRadius = 35;
-            this.elipseControl2.TargetControl = this.panel1;
-            // 
             // backButton
             // 
             this.backButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(222)))), ((int)(((byte)(88)))));
@@ -316,6 +306,16 @@
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // elipseControl1
+            // 
+            this.elipseControl1.CornerRadius = 30;
+            this.elipseControl1.TargetControl = this.ProductDetailsPanel;
+            // 
+            // elipseControl2
+            // 
+            this.elipseControl2.CornerRadius = 35;
+            this.elipseControl2.TargetControl = this.panel1;
             // 
             // MainForm
             // 

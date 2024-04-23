@@ -33,7 +33,7 @@ namespace Admin
         private void suggestionButton_Click(object sender, EventArgs e)
         {
             // Open the SuggestionForm
-            SuggestionForm suggestionForm = new SuggestionForm();
+            SuggestionForm suggestionForm = new SuggestionForm("username", "password");
             suggestionForm.Show();
             this.Hide();
         }
