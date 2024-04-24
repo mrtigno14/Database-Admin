@@ -31,7 +31,7 @@
             this.suggestionButton = new System.Windows.Forms.Button();
             this.medicineButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.imageButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // suggestionButton
@@ -70,22 +70,22 @@
             this.logoutButton.UseVisualStyleBackColor = false;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
-            // button1
+            // imageButton
             // 
-            this.button1.Location = new System.Drawing.Point(330, 259);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 33);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "IMAGES";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.imageButton.Location = new System.Drawing.Point(330, 259);
+            this.imageButton.Name = "imageButton";
+            this.imageButton.Size = new System.Drawing.Size(120, 33);
+            this.imageButton.TabIndex = 18;
+            this.imageButton.Text = "IMAGES";
+            this.imageButton.UseVisualStyleBackColor = true;
+            this.imageButton.Click += new System.EventHandler(this.imageButton_Click);
             // 
             // SelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.imageButton);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.medicineButton);
             this.Controls.Add(this.suggestionButton);
@@ -101,6 +101,6 @@
         private System.Windows.Forms.Button suggestionButton;
         private System.Windows.Forms.Button medicineButton;
         private System.Windows.Forms.Button logoutButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button imageButton;
     }
 }

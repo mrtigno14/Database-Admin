@@ -338,6 +338,7 @@
             this.backButton.TabIndex = 31;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // logoutButton
             // 
@@ -350,7 +351,7 @@
             this.logoutButton.TabIndex = 30;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click_1);
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // panel2
             // 

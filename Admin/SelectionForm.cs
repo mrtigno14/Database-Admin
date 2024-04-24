@@ -86,9 +86,12 @@ namespace Admin
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void imageButton_Click(object sender, EventArgs e)
         {
-
+            // Open the MainForm with provided username and password
+            ImageForm imageForm = new ImageForm("username", "password");
+            imageForm.Show();
+            this.Hide();
         }
     }
 }
