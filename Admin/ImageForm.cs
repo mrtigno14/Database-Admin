@@ -31,8 +31,10 @@ namespace Admin
 
         private string username;
         private string password;
+        private string filePath; // Declare class-level variable to store file path
+        private string fileName;
 
-      
+
 
 
         public ImageForm(string username, string password)
@@ -69,10 +71,33 @@ namespace Admin
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
+            url.Enabled = false;
+            loadimages();
         }
 
-        //Image img = new Bitmap(ofd.FileName);
-        //imageBox.Image = img.GetThumbnailImage(350, 200, null, new IntPtr());
+        public void loadimages()
+        {
+            try
+            {
+                FirebaseResponse response = client.Get("Files/");
+                Dictionary<string, Images> getImages = response.ResultAs<Dictionary<string, Images>>();
+
+                foreach (var get in getImages)
+                {
+                    viewimage.Rows.Add(
+                        get.Value.ID,
+                        get.Value.fileName,
+                        get.Value.fileUrl
+                        );
+                }
+            }
+            catch
+            {
+                MessageBox.Show("WALANG LAMAN LODS");
+            }
+        }
+
         private async void browseButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -81,60 +106,96 @@ namespace Admin
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string filePath = openFileDialog.FileName;
-                string fileName = Path.GetFileName(filePath);
+                filePath = openFileDialog.FileName;
+                fileName = Path.GetFileName(filePath);
 
-                //Image img = new Bitmap(ofd.FileName);
-                //imageBox.Image = img.GetThumbnailImage(350, 200, null, new IntPtr());
+                // Load the selected image
+                Image selectedImage = Image.FromFile(filePath);
 
+                // Stretch the image to fit into the imageBox control
+                imageBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                imageBox.Image = selectedImage;
+            }
+        }
+
+        private async void insertButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(id.Text) || string.IsNullOrWhiteSpace(name.Text))
+            {
+                MessageBox.Show("Please fill in all the fields.");
+                return; // Exit the method if any field is empty
+            }
+
+            if (!string.IsNullOrEmpty(filePath) && !string.IsNullOrEmpty(fileName))
+            {
                 try
                 {
-                    await UploadFile(filePath, fileName);
+                    // Initialize Firebase Storage with your FirebaseApp
+                    FirebaseStorage storage = new FirebaseStorage("keywords-e2507.appspot.com");
+
+                    // Upload the file
+                    var task = storage
+                        .Child("Images")
+                        .Child(fileName)
+                        .PutAsync(File.OpenRead(filePath));
+
+                    // Wait for the upload to complete
+                    var downloadUrl = await task;
+
+                    // The downloadUrl variable now contains the URL of the uploaded file
                     MessageBox.Show("Image uploaded successfully!");
+
+                    // Set the URL text box with the download URL
+                    url.Text = downloadUrl;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Error uploading image: {ex.Message}");
                 }
             }
-        }
-
-        private async Task UploadFile(string filePath, string fileName)
-        {
-            try
+            else
             {
-                // Initialize Firebase Storage with your FirebaseApp
-                FirebaseStorage storage = new FirebaseStorage("keywords-e2507.appspot.com");
-
-                // Upload the file
-                var task = storage
-                    .Child("Images")
-                    .Child(fileName)
-                    .PutAsync(File.OpenRead(filePath));
-
-                // Wait for the upload to complete
-                var downloadUrl = await task;
-
-                // The downloadUrl variable now contains the URL of the uploaded file
-                MessageBox.Show("Image uploaded successfully!");
+                MessageBox.Show("Please select an image to upload.");
             }
-            catch (Exception ex)
+
+            Images image = new Images()
             {
-                MessageBox.Show($"Error uploading image: {ex.Message}");
-            }
-        }
+                ID = id.Text,
+                fileName = name.Text,
+                fileUrl = url.Text,
+            };
 
+            FirebaseResponse response = client.Set("Files/" + id.Text, image);
+            MessageBox.Show("UGH");
 
-
-
-        private void insertButton_Click(object sender, EventArgs e)
-        {
-
+            viewimage.DataSource = null;
+            viewimage.Rows.Clear();
+            loadimages();
         }
 
         private void retrieveButton_Click(object sender, EventArgs e)
         {
+            FirebaseResponse response = client.Get("Files/" + id.Text);
 
+            // Check if the response is null
+            if (response == null || response.ResultAs<Images>() == null)
+            {
+                // Display a message indicating that the ID does not exist
+                MessageBox.Show("Item not found.");
+                return;
+            }
+
+            Images images = response.ResultAs<Images>();
+
+            // Perform further operations only if the response is not null
+            if (id.Text.Equals(images.ID))
+            {
+                name.Text = images.fileName;
+                url.Text = images.fileUrl;
+                
+
+                MessageBox.Show("HULI KA BOI");
+            }
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -158,6 +219,67 @@ namespace Admin
             this.Hide();
         }
 
-        
+        private void copyButton_Click(object sender, EventArgs e)
+        {
+            // Check if the URL text box is not empty
+            if (!string.IsNullOrEmpty(url.Text))
+            {
+                // Copy the text inside the URL text box to the clipboard
+                Clipboard.SetText(url.Text);
+
+                // Show a message to indicate that the URL has been copied
+                MessageBox.Show("URL copied to clipboard.");
+            }
+            else
+            {
+                // Show a message if the URL text box is empty
+                MessageBox.Show("No URL to copy.");
+            }
+        }
+
+        private async void removeButton_Click(object sender, EventArgs e)
+        {
+            // Check if the ID and URL text boxes are not empty
+            if (!string.IsNullOrWhiteSpace(id.Text) && !string.IsNullOrWhiteSpace(url.Text))
+            {
+                // Extract the file name from the URL
+                Uri uri = new Uri(url.Text);
+                string fileNameToDelete = Path.GetFileName(uri.LocalPath);
+
+                // Delete the file information from the database
+                FirebaseResponse response = client.Delete("Files/" + id.Text);
+                MessageBox.Show("File information deleted from database.");
+
+                // Check if the response from deleting the file information is successful
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    // Delete the corresponding file from Firebase Storage
+                    try
+                    {
+                        FirebaseStorage storage = new FirebaseStorage("keywords-e2507.appspot.com");
+                        await storage.Child("Images").Child(fileNameToDelete).DeleteAsync();
+                        MessageBox.Show("File deleted from Firebase Storage.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error deleting file from Firebase Storage: {ex.Message}");
+                    }
+                }
+
+                // Clear the text boxes and reload the images
+                id.Text = string.Empty;
+                name.Text = string.Empty;
+                url.Text = string.Empty;
+
+                viewimage.DataSource = null;
+                viewimage.Rows.Clear();
+                loadimages();
+            }
+            else
+            {
+                // Show a message if the ID or URL text boxes are empty
+                MessageBox.Show("Please enter both the ID and URL of the file to be removed.");
+            }
+        }
     }
 }

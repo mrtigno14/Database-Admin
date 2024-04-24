@@ -189,6 +189,7 @@
             this.unavailable.Size = new System.Drawing.Size(147, 21);
             this.unavailable.TabIndex = 23;
             this.unavailable.Text = "";
+            this.unavailable.TextChanged += new System.EventHandler(this.unavailable_TextChanged);
             // 
             // available
             // 

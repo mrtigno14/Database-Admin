@@ -107,7 +107,7 @@ namespace Admin
                 keyword = keyword.Text,
                 available = available.Text,
                 unavailable = unavailable.Text,
-                description = unavailable.Text,
+                description = description.Text,
                 sourcelink = sourcelink.Text
 
 
@@ -241,6 +241,11 @@ namespace Admin
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void unavailable_TextChanged(object sender, EventArgs e)
         {
 
         }
