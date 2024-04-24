@@ -368,7 +368,7 @@
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.label8.Location = new System.Drawing.Point(350, 22);
+            this.label8.Location = new System.Drawing.Point(350, 14);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(283, 17);
             this.label8.TabIndex = 16;
