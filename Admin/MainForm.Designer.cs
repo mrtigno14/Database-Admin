@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.viewmedicine = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
@@ -46,19 +52,13 @@
             this.purchased = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.url = new System.Windows.Forms.RichTextBox();
+            this.idComboBox = new System.Windows.Forms.ComboBox();
             this.ProductDetailsPanel = new System.Windows.Forms.Panel();
             this.backButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.idComboBox = new System.Windows.Forms.ComboBox();
-            this.url = new System.Windows.Forms.RichTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.viewmedicine)).BeginInit();
             this.panel1.SuspendLayout();
             this.ProductDetailsPanel.SuspendLayout();
@@ -84,6 +84,47 @@
             this.viewmedicine.Size = new System.Drawing.Size(523, 442);
             this.viewmedicine.TabIndex = 1;
             this.viewmedicine.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.viewmedicine_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 54;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Name";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Price";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 69;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Quantity";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 54;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Purchased";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 69;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "fileUrl";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // addButton
             // 
@@ -269,6 +310,33 @@
             this.panel1.TabIndex = 19;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(27, 217);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 15);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "File Url";
+            // 
+            // url
+            // 
+            this.url.Location = new System.Drawing.Point(140, 216);
+            this.url.Name = "url";
+            this.url.Size = new System.Drawing.Size(147, 21);
+            this.url.TabIndex = 32;
+            this.url.Text = "";
+            // 
+            // idComboBox
+            // 
+            this.idComboBox.FormattingEnabled = true;
+            this.idComboBox.Location = new System.Drawing.Point(146, 64);
+            this.idComboBox.Name = "idComboBox";
+            this.idComboBox.Size = new System.Drawing.Size(125, 21);
+            this.idComboBox.TabIndex = 19;
+            this.idComboBox.SelectedIndexChanged += new System.EventHandler(this.idComboBox_SelectedIndexChanged);
+            // 
             // ProductDetailsPanel
             // 
             this.ProductDetailsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(192)))), ((int)(((byte)(185)))));
@@ -314,74 +382,6 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "© 2024 LMMN, Inc. All rights reserved";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // idComboBox
-            // 
-            this.idComboBox.FormattingEnabled = true;
-            this.idComboBox.Location = new System.Drawing.Point(146, 64);
-            this.idComboBox.Name = "idComboBox";
-            this.idComboBox.Size = new System.Drawing.Size(125, 21);
-            this.idComboBox.TabIndex = 19;
-            this.idComboBox.SelectedIndexChanged += new System.EventHandler(this.idComboBox_SelectedIndexChanged);
-            // 
-            // url
-            // 
-            this.url.Location = new System.Drawing.Point(140, 216);
-            this.url.Name = "url";
-            this.url.Size = new System.Drawing.Size(147, 21);
-            this.url.TabIndex = 32;
-            this.url.Text = "";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(27, 217);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 15);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "File Url";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 54;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Name";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Price";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 69;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Quantity";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 54;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Purchased";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 69;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "fileUrl";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // MainForm
             // 

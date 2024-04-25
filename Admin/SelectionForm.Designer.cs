@@ -32,6 +32,7 @@
             this.medicineButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.imageButton = new System.Windows.Forms.Button();
+            this.salesButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // suggestionButton
@@ -80,11 +81,22 @@
             this.imageButton.UseVisualStyleBackColor = true;
             this.imageButton.Click += new System.EventHandler(this.imageButton_Click);
             // 
+            // salesButton
+            // 
+            this.salesButton.Location = new System.Drawing.Point(330, 309);
+            this.salesButton.Name = "salesButton";
+            this.salesButton.Size = new System.Drawing.Size(120, 33);
+            this.salesButton.TabIndex = 19;
+            this.salesButton.Text = "SALES";
+            this.salesButton.UseVisualStyleBackColor = true;
+            this.salesButton.Click += new System.EventHandler(this.salesButton_Click);
+            // 
             // SelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.salesButton);
             this.Controls.Add(this.imageButton);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.medicineButton);
@@ -102,5 +114,6 @@
         private System.Windows.Forms.Button medicineButton;
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button imageButton;
+        private System.Windows.Forms.Button salesButton;
     }
 }

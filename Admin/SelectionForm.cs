@@ -93,5 +93,13 @@ namespace Admin
             imageForm.Show();
             this.Hide();
         }
+
+        private void salesButton_Click(object sender, EventArgs e)
+        {
+            // Open the MainForm with provided username and password
+            SalesForm salesForm = new SalesForm("username", "password");
+            salesForm.Show();
+            this.Hide();
+        }
     }
 }
