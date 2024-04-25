@@ -23,10 +23,13 @@ namespace Admin
         };
         private IFirebaseClient client;
 
+        private bool showPassword = false;
+
         public Form1()
         {
             InitializeComponent();
             InitializeTextBoxPlaceholder();
+            textBox2.UseSystemPasswordChar = true;
         }
 
         
@@ -34,12 +37,12 @@ namespace Admin
         private void InitializeTextBoxPlaceholder()
         {
             // Set the placeholder text
-            textBox1.Text = "Enter Username";
-            textBox2.Text = "Enter Password";
+            //textBox1.Text = "Enter Username";
+            //textBox2.Text = "Enter Password";
 
             // Change text color to gray
-            textBox1.ForeColor = Color.Gray;
-            textBox2.ForeColor = Color.Gray;
+            //textBox1.ForeColor = Color.Gray;
+            //textBox2.ForeColor = Color.Gray;
 
             // Add event handlers
             textBox1.Enter += TextBox_Enter;
@@ -129,11 +132,6 @@ namespace Admin
         }
 
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private async void button1_Click(object sender, EventArgs e)
         {
             try
@@ -207,6 +205,24 @@ namespace Admin
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            // Exit the application
+            Application.Exit();
+        }
+
+        private void showButton_Click(object sender, EventArgs e)
+        {
+            // Toggle the showPassword flag
+            showPassword = !showPassword;
+
+            // Update the UseSystemPasswordChar property based on the flag
+            textBox2.UseSystemPasswordChar = !showPassword;
+
+            // Change the button text accordingly
+            showButton.Text = showPassword ? "Hide" : "Show";
         }
     }
 }

@@ -37,8 +37,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.exitButton = new System.Windows.Forms.Button();
             this.elipseControl3 = new ElipseToolDemo.ElipseControl();
             this.elipseControl1 = new ElipseToolDemo.ElipseControl();
+            this.showButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,7 +60,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(259, 20);
             this.textBox2.TabIndex = 2;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button1
             // 
@@ -122,6 +123,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.showButton);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.AdminLoginDesc);
             this.panel3.Controls.Add(this.button1);
@@ -144,6 +146,20 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // exitButton
+            // 
+            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
+            this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.ForeColor = System.Drawing.Color.White;
+            this.exitButton.Location = new System.Drawing.Point(886, 12);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(126, 40);
+            this.exitButton.TabIndex = 5;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // elipseControl3
             // 
             this.elipseControl3.CornerRadius = 35;
@@ -154,12 +170,23 @@
             this.elipseControl1.CornerRadius = 30;
             this.elipseControl1.TargetControl = this.panel3;
             // 
+            // showButton
+            // 
+            this.showButton.Location = new System.Drawing.Point(431, 304);
+            this.showButton.Name = "showButton";
+            this.showButton.Size = new System.Drawing.Size(43, 23);
+            this.showButton.TabIndex = 5;
+            this.showButton.Text = "Show";
+            this.showButton.UseVisualStyleBackColor = true;
+            this.showButton.Click += new System.EventHandler(this.showButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(1024, 681);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
@@ -186,6 +213,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private ElipseToolDemo.ElipseControl elipseControl1;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button showButton;
     }
 }
 

@@ -39,6 +39,8 @@
             this.removeButton = new System.Windows.Forms.Button();
             this.idListBox = new System.Windows.Forms.ListBox();
             this.id = new System.Windows.Forms.TextBox();
+            this.saveallButton = new System.Windows.Forms.Button();
+            this.savethisButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.viewsale)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +55,7 @@
             this.logoutButton.TabIndex = 17;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // backButton
             // 
@@ -79,7 +82,7 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.viewsale.Location = new System.Drawing.Point(331, 66);
+            this.viewsale.Location = new System.Drawing.Point(303, 12);
             this.viewsale.Name = "viewsale";
             this.viewsale.ReadOnly = true;
             this.viewsale.Size = new System.Drawing.Size(523, 442);
@@ -125,12 +128,13 @@
             this.removeButton.BackColor = System.Drawing.Color.White;
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.removeButton.Location = new System.Drawing.Point(105, 376);
+            this.removeButton.Location = new System.Drawing.Point(105, 361);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(85, 30);
             this.removeButton.TabIndex = 25;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = false;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // idListBox
             // 
@@ -150,11 +154,39 @@
             this.id.TabIndex = 28;
             this.id.TextChanged += new System.EventHandler(this.id_TextChanged);
             // 
+            // saveallButton
+            // 
+            this.saveallButton.BackColor = System.Drawing.Color.White;
+            this.saveallButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveallButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
+            this.saveallButton.Location = new System.Drawing.Point(847, 443);
+            this.saveallButton.Name = "saveallButton";
+            this.saveallButton.Size = new System.Drawing.Size(100, 30);
+            this.saveallButton.TabIndex = 29;
+            this.saveallButton.Text = "Save All Data";
+            this.saveallButton.UseVisualStyleBackColor = false;
+            this.saveallButton.Click += new System.EventHandler(this.saveallButton_Click);
+            // 
+            // savethisButton
+            // 
+            this.savethisButton.BackColor = System.Drawing.Color.White;
+            this.savethisButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.savethisButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
+            this.savethisButton.Location = new System.Drawing.Point(105, 283);
+            this.savethisButton.Name = "savethisButton";
+            this.savethisButton.Size = new System.Drawing.Size(103, 30);
+            this.savethisButton.TabIndex = 30;
+            this.savethisButton.Text = "Save This Data";
+            this.savethisButton.UseVisualStyleBackColor = false;
+            this.savethisButton.Click += new System.EventHandler(this.savethisButton_Click);
+            // 
             // SalesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 658);
+            this.Controls.Add(this.savethisButton);
+            this.Controls.Add(this.saveallButton);
             this.Controls.Add(this.id);
             this.Controls.Add(this.idListBox);
             this.Controls.Add(this.removeButton);
@@ -183,5 +215,7 @@
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.ListBox idListBox;
         private System.Windows.Forms.TextBox id;
+        private System.Windows.Forms.Button saveallButton;
+        private System.Windows.Forms.Button savethisButton;
     }
 }
