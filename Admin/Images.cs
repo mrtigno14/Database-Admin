@@ -8,7 +8,6 @@ namespace Admin
 {
     internal class Images
     {
-        public string image { get; set; }
         public string ID { get; set; }
         public string fileName { get; set; }
         public string fileUrl { get; set; }

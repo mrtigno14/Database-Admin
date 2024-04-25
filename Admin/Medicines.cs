@@ -14,6 +14,7 @@ namespace Admin
         public string itemPrice { get; set; }
         public string itemQuantity { get; set; }
         public string itemSold { get; set; }
+        public string fileUrl { get; set; }
 
     }
 }

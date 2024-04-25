@@ -7,9 +7,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Admin
 {
@@ -63,6 +65,8 @@ namespace Admin
 
             purchased.Enabled = false;
             loadmedicines();
+            // Set up the ComboBox with dropdown style
+            idComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         public void loadmedicines()
@@ -72,15 +76,25 @@ namespace Admin
                 FirebaseResponse response = client.Get("VendingMachine/");
                 Dictionary<string, VendingMachine> getMedicines = response.ResultAs<Dictionary<string, VendingMachine>>();
 
+                // Clear previous items in the ComboBox
+                idComboBox.Items.Clear();
+
                 foreach (var get in getMedicines)
                 {
+                    // Add unique IDs from the first column to the ComboBox
+                    if (!idComboBox.Items.Contains(get.Value.ID))
+                    {
+                        idComboBox.Items.Add(get.Value.ID);
+                    }
+
                     viewmedicine.Rows.Add(
                         get.Value.ID,
                         get.Value.itemName,
                         get.Value.itemPrice,
                         get.Value.itemQuantity,
-                        get.Value.itemSold
-                        );
+                        get.Value.itemSold,
+                        get.Value.fileUrl
+                    );
                 }
             }
             catch
@@ -89,6 +103,13 @@ namespace Admin
             }
 
             
+        }
+
+        // Event handler for ComboBox selected index changed event
+        private void idComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Set the selected ID from the ComboBox to the id TextBox
+            id.Text = idComboBox.SelectedItem?.ToString();
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -106,8 +127,9 @@ namespace Admin
                 itemName = name.Text,
                 itemPrice = price.Text,
                 itemQuantity = quantity.Text,
-                itemSold = "XD"
-                
+                itemSold = "XD",
+                fileUrl = url.Text
+
 
             };
 
@@ -122,14 +144,29 @@ namespace Admin
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            FirebaseResponse response = client.Delete("VendingMachine/" + id.Text);
-            MessageBox.Show("Nawala na sha :(");
-            id.Text = string.Empty;
+            // Create an instance of VendingMachine with empty values
+            var med = new VendingMachine
+            {
+                ID = id.Text,
+                itemName = string.Empty,
+                itemPrice = string.Empty,
+                itemQuantity = string.Empty,
+                itemSold = string.Empty,
+                fileUrl = string.Empty
+            };
+
+            // Update the node in Firebase with the empty values
+            FirebaseResponse response = client.Update("VendingMachine/" + id.Text, med);
+            MessageBox.Show("Values removed for item with ID: " + id.Text);
+
+            // Clear the values of other fields
             name.Text = string.Empty;
             price.Text = string.Empty;
             quantity.Text = string.Empty;
             purchased.Text = string.Empty;
+            url.Text = string.Empty;
 
+            // Reload medicines
             viewmedicine.DataSource = null;
             viewmedicine.Rows.Clear();
             loadmedicines();
@@ -138,7 +175,8 @@ namespace Admin
         private void updateButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(id.Text) || string.IsNullOrWhiteSpace(name.Text) ||
-        string.IsNullOrWhiteSpace(price.Text) || string.IsNullOrWhiteSpace(quantity.Text))
+        string.IsNullOrWhiteSpace(price.Text) || string.IsNullOrWhiteSpace(quantity.Text) ||
+        string.IsNullOrWhiteSpace(url.Text))
             {
                 MessageBox.Show("Please fill in all the fields.");
                 return; // Exit the method if any field is empty
@@ -150,7 +188,8 @@ namespace Admin
                 itemName = name.Text,
                 itemPrice = price.Text,
                 itemQuantity = quantity.Text,
-                itemSold = purchased.Text
+                itemSold = purchased.Text,
+                fileUrl = url.Text
             };
 
             
@@ -162,6 +201,7 @@ namespace Admin
             price.Text = string.Empty;
             quantity.Text = string.Empty;
             purchased.Text = string.Empty;
+            url.Text = string.Empty;
 
             viewmedicine.DataSource = null;
             viewmedicine.Rows.Clear();
@@ -190,6 +230,7 @@ namespace Admin
                 price.Text = meds.itemPrice;
                 quantity.Text = meds.itemQuantity;
                 purchased.Text = meds.itemSold;
+                url.Text = meds.fileUrl;
                 MessageBox.Show("HULI KA BOI");
             }
         }
