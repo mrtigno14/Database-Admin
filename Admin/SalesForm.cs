@@ -92,7 +92,7 @@ namespace Admin
         {
             try
             {
-                FirebaseResponse response = client.Get("Sales/");
+                FirebaseResponse response = client.Get("TotalSales/");
 
                 // Check if the response is not null and contains data
                 if (response != null && response.Body != "null")
@@ -118,10 +118,11 @@ namespace Admin
 
                         viewsale.Rows.Add(
                             get.Value.ID,
-                            get.Value.productName,
-                            get.Value.price,
-                            get.Value.quantity,
-                            get.Value.salesPrice
+                            get.Value.itemName,
+                            get.Value.itemPrice,
+                            get.Value.itemSold,
+                            get.Value.totalPrice
+                            
                         );
                     }
                     // If no matching item is found, hide the ListBox
@@ -335,7 +336,7 @@ namespace Admin
             try
             {
                 // Delete everything inside the "Sales/" node
-                FirebaseResponse response = client.Delete("Sales/" + id.Text);
+                FirebaseResponse response = client.Delete("TotalSales/" + id.Text);
 
                 // Inform the user that the data has been removed
                 MessageBox.Show("All sales data has been removed successfully.");

@@ -31,16 +31,16 @@
             this.logoutButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.viewsale = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.removeButton = new System.Windows.Forms.Button();
             this.idListBox = new System.Windows.Forms.ListBox();
             this.id = new System.Windows.Forms.TextBox();
             this.saveallButton = new System.Windows.Forms.Button();
             this.savethisButton = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.viewsale)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,9 +49,10 @@
             this.logoutButton.BackColor = System.Drawing.Color.White;
             this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.logoutButton.Location = new System.Drawing.Point(832, 12);
+            this.logoutButton.Location = new System.Drawing.Point(1109, 15);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(136, 48);
+            this.logoutButton.Size = new System.Drawing.Size(181, 59);
             this.logoutButton.TabIndex = 17;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
@@ -62,9 +63,10 @@
             this.backButton.BackColor = System.Drawing.Color.White;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.backButton.Location = new System.Drawing.Point(12, 12);
+            this.backButton.Location = new System.Drawing.Point(16, 15);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(136, 48);
+            this.backButton.Size = new System.Drawing.Size(181, 59);
             this.backButton.TabIndex = 22;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
@@ -78,59 +80,27 @@
             this.viewsale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.viewsale.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
+            this.Column5,
             this.Column2,
             this.Column3,
-            this.Column4,
-            this.Column5});
-            this.viewsale.Location = new System.Drawing.Point(303, 12);
+            this.Column4});
+            this.viewsale.Location = new System.Drawing.Point(404, 15);
+            this.viewsale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.viewsale.Name = "viewsale";
             this.viewsale.ReadOnly = true;
-            this.viewsale.Size = new System.Drawing.Size(523, 442);
+            this.viewsale.RowHeadersWidth = 51;
+            this.viewsale.Size = new System.Drawing.Size(697, 544);
             this.viewsale.TabIndex = 24;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 54;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Name";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Price";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 69;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Quantity";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 54;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Sale Price";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 69;
             // 
             // removeButton
             // 
             this.removeButton.BackColor = System.Drawing.Color.White;
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.removeButton.Location = new System.Drawing.Point(105, 361);
+            this.removeButton.Location = new System.Drawing.Point(140, 444);
+            this.removeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(85, 30);
+            this.removeButton.Size = new System.Drawing.Size(113, 37);
             this.removeButton.TabIndex = 25;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = false;
@@ -139,18 +109,21 @@
             // idListBox
             // 
             this.idListBox.FormattingEnabled = true;
-            this.idListBox.Location = new System.Drawing.Point(105, 209);
+            this.idListBox.ItemHeight = 16;
+            this.idListBox.Location = new System.Drawing.Point(140, 257);
+            this.idListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.idListBox.Name = "idListBox";
-            this.idListBox.Size = new System.Drawing.Size(125, 43);
+            this.idListBox.Size = new System.Drawing.Size(165, 52);
             this.idListBox.TabIndex = 27;
             this.idListBox.Visible = false;
             this.idListBox.SelectedIndexChanged += new System.EventHandler(this.idListBox_SelectedIndexChanged);
             // 
             // id
             // 
-            this.id.Location = new System.Drawing.Point(105, 183);
+            this.id.Location = new System.Drawing.Point(140, 225);
+            this.id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(125, 20);
+            this.id.Size = new System.Drawing.Size(165, 22);
             this.id.TabIndex = 28;
             this.id.TextChanged += new System.EventHandler(this.id_TextChanged);
             // 
@@ -159,9 +132,10 @@
             this.saveallButton.BackColor = System.Drawing.Color.White;
             this.saveallButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveallButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.saveallButton.Location = new System.Drawing.Point(847, 443);
+            this.saveallButton.Location = new System.Drawing.Point(1129, 545);
+            this.saveallButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.saveallButton.Name = "saveallButton";
-            this.saveallButton.Size = new System.Drawing.Size(100, 30);
+            this.saveallButton.Size = new System.Drawing.Size(133, 37);
             this.saveallButton.TabIndex = 29;
             this.saveallButton.Text = "Save All Data";
             this.saveallButton.UseVisualStyleBackColor = false;
@@ -172,19 +146,60 @@
             this.savethisButton.BackColor = System.Drawing.Color.White;
             this.savethisButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savethisButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.savethisButton.Location = new System.Drawing.Point(105, 283);
+            this.savethisButton.Location = new System.Drawing.Point(140, 348);
+            this.savethisButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.savethisButton.Name = "savethisButton";
-            this.savethisButton.Size = new System.Drawing.Size(103, 30);
+            this.savethisButton.Size = new System.Drawing.Size(137, 37);
             this.savethisButton.TabIndex = 30;
             this.savethisButton.Text = "Save This Data";
             this.savethisButton.UseVisualStyleBackColor = false;
             this.savethisButton.Click += new System.EventHandler(this.savethisButton_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 54;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Price";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Name";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Sold";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Total Price";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 125;
+            // 
             // SalesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 658);
+            this.ClientSize = new System.Drawing.Size(1307, 810);
             this.Controls.Add(this.savethisButton);
             this.Controls.Add(this.saveallButton);
             this.Controls.Add(this.id);
@@ -193,6 +208,7 @@
             this.Controls.Add(this.viewsale);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.logoutButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SalesForm";
             this.Text = "SalesForm";
             this.Load += new System.EventHandler(this.SalesForm_Load);
@@ -207,15 +223,15 @@
         private System.Windows.Forms.Button logoutButton;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.DataGridView viewsale;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.ListBox idListBox;
         private System.Windows.Forms.TextBox id;
         private System.Windows.Forms.Button saveallButton;
         private System.Windows.Forms.Button savethisButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }
