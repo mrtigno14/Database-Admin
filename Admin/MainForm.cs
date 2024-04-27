@@ -91,8 +91,7 @@ namespace Admin
                         get.Value.ID,
                         get.Value.itemName,
                         get.Value.itemPrice,
-                        get.Value.itemQuantity,
-                        get.Value.itemSold,
+                        get.Value.itemStock,
                         get.Value.fileUrl
                     );
                 }
@@ -126,8 +125,7 @@ namespace Admin
                 ID = id.Text,
                 itemName = name.Text,
                 itemPrice = price.Text,
-                itemQuantity = quantity.Text,
-                itemSold = "XD",
+                itemStock = quantity.Text,
                 fileUrl = url.Text
 
 
@@ -150,8 +148,7 @@ namespace Admin
                 ID = id.Text,
                 itemName = string.Empty,
                 itemPrice = string.Empty,
-                itemQuantity = string.Empty,
-                itemSold = string.Empty,
+                itemStock = string.Empty,
                 fileUrl = string.Empty
             };
 
@@ -187,8 +184,7 @@ namespace Admin
                 ID = id.Text,
                 itemName = name.Text,
                 itemPrice = price.Text,
-                itemQuantity = quantity.Text,
-                itemSold = purchased.Text,
+                itemStock = quantity.Text,
                 fileUrl = url.Text
             };
 
@@ -228,8 +224,7 @@ namespace Admin
             {
                 name.Text = meds.itemName;
                 price.Text = meds.itemPrice;
-                quantity.Text = meds.itemQuantity;
-                purchased.Text = meds.itemSold;
+                quantity.Text = meds.itemStock;
                 url.Text = meds.fileUrl;
                 MessageBox.Show("HULI KA BOI");
             }
@@ -280,6 +275,11 @@ namespace Admin
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void purchased_TextChanged(object sender, EventArgs e)
         {
 
         }
