@@ -87,7 +87,7 @@ namespace Admin
             }
             catch
             {
-                MessageBox.Show("WALANG LAMAN LODS");
+                MessageBox.Show("No data from Firebase.");
             }
         }
 
@@ -114,7 +114,7 @@ namespace Admin
             };
 
             FirebaseResponse response = client.Set("Keywords/" + id.Text, key);
-            MessageBox.Show("UGH");
+            
 
             viewsuggestion.DataSource = null;
             viewsuggestion.Rows.Clear();
@@ -125,7 +125,7 @@ namespace Admin
         private void removeButton_Click(object sender, EventArgs e)
         {
             FirebaseResponse response = client.Delete("Keywords/" + id.Text);
-            MessageBox.Show("Nawala na sha :(");
+            
             id.Text = string.Empty;
             keyword.Text = string.Empty;
             available.Text = string.Empty;
@@ -162,7 +162,7 @@ namespace Admin
 
 
             FirebaseResponse response = client.Update("Keywords/" + id.Text, key);
-            MessageBox.Show("MAGBAGO KA NA RIN");
+            
             id.Text = string.Empty;
             keyword.Text = string.Empty;
             available.Text = string.Empty;
@@ -199,7 +199,7 @@ namespace Admin
                 description.Text = keys.description;
                 sourcelink.Text = keys.sourcelink;
 
-                MessageBox.Show("HULI KA BOI");
+                
             }
         }
 
@@ -248,6 +248,13 @@ namespace Admin
         private void unavailable_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            viewsuggestion.DataSource = null;
+            viewsuggestion.Rows.Clear();
+            loadkeywords();
         }
     }
 }

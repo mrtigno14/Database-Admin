@@ -65,6 +65,7 @@ namespace Admin
 
             
             loadmedicines();
+
             // Set up the ComboBox with dropdown style
             idComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
         }
@@ -98,7 +99,7 @@ namespace Admin
             }
             catch
             {
-                MessageBox.Show("WALANG LAMAN LODS");
+                MessageBox.Show("No data from Firebase.");
             }
 
             
@@ -132,8 +133,7 @@ namespace Admin
             };
 
             FirebaseResponse response = client.Set("VendingMachine/" + id.Text, med);
-            MessageBox.Show("UGH");
-
+            
             viewmedicine.DataSource = null;
             viewmedicine.Rows.Clear();
             loadmedicines();
@@ -187,10 +187,8 @@ namespace Admin
                 fileUrl = url.Text
             };
 
-            
-
             FirebaseResponse response = client.Update("VendingMachine/" + id.Text, med);
-            MessageBox.Show("MAGBAGO KA NA RIN");
+            
             id.Text = string.Empty;
             name.Text = string.Empty;
             price.Text = string.Empty;
@@ -224,16 +222,17 @@ namespace Admin
                 price.Text = meds.itemPrice;
                 quantity.Text = meds.itemStock;
                 url.Text = meds.fileUrl;
-                MessageBox.Show("HULI KA BOI");
+                
             }
+
+
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-           /* viewmedicine.DataSource = null;
+            viewmedicine.DataSource = null;
             viewmedicine.Rows.Clear();
-            
-            loadmedicines();*/
+            loadmedicines();
         }
 
         private void logoutButton_Click(object sender, EventArgs e)

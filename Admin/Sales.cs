@@ -10,7 +10,6 @@ namespace Admin
     {
         public string ID { get; set; }
         public string itemName { get; set; }
-        public string itemPrice { get; set; }
         public string itemSold { get; set; }
         public string totalPrice { get; set; }
     }

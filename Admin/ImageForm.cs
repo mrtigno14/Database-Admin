@@ -183,7 +183,7 @@ namespace Admin
             };
 
             FirebaseResponse response = client.Set("Files/" + id.Text, image);
-            MessageBox.Show("UGH");
+            
 
             viewimage.DataSource = null;
             viewimage.Rows.Clear();
@@ -211,7 +211,7 @@ namespace Admin
                 url.Text = images.fileUrl;
                 
 
-                MessageBox.Show("HULI KA BOI");
+                
             }
         }
 
@@ -297,6 +297,13 @@ namespace Admin
                 // Show a message if the ID or URL text boxes are empty
                 MessageBox.Show("Please enter both the ID and URL of the file to be removed.");
             }
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            viewimage.DataSource = null;
+            viewimage.Rows.Clear();
+            loadimages();
         }
     }
 }
