@@ -118,8 +118,7 @@ namespace Admin
 
                         viewsale.Rows.Add(
                             get.Value.ID,
-                            get.Value.itemName,
-                            get.Value.itemPrice,
+                            get.Value.itemName,  
                             get.Value.itemSold,
                             get.Value.totalPrice
                             

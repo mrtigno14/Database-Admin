@@ -37,7 +37,6 @@
             this.saveallButton = new System.Windows.Forms.Button();
             this.savethisButton = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +49,7 @@
             this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
             this.logoutButton.Location = new System.Drawing.Point(1109, 15);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(4);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(181, 59);
             this.logoutButton.TabIndex = 17;
@@ -64,7 +63,7 @@
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
             this.backButton.Location = new System.Drawing.Point(16, 15);
-            this.backButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(181, 59);
             this.backButton.TabIndex = 22;
@@ -80,16 +79,15 @@
             this.viewsale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.viewsale.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column5,
             this.Column2,
             this.Column3,
             this.Column4});
-            this.viewsale.Location = new System.Drawing.Point(404, 15);
-            this.viewsale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.viewsale.Location = new System.Drawing.Point(425, 26);
+            this.viewsale.Margin = new System.Windows.Forms.Padding(4);
             this.viewsale.Name = "viewsale";
             this.viewsale.ReadOnly = true;
             this.viewsale.RowHeadersWidth = 51;
-            this.viewsale.Size = new System.Drawing.Size(697, 544);
+            this.viewsale.Size = new System.Drawing.Size(631, 544);
             this.viewsale.TabIndex = 24;
             // 
             // removeButton
@@ -98,7 +96,7 @@
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
             this.removeButton.Location = new System.Drawing.Point(140, 444);
-            this.removeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.removeButton.Margin = new System.Windows.Forms.Padding(4);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(113, 37);
             this.removeButton.TabIndex = 25;
@@ -111,7 +109,7 @@
             this.idListBox.FormattingEnabled = true;
             this.idListBox.ItemHeight = 16;
             this.idListBox.Location = new System.Drawing.Point(140, 257);
-            this.idListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.idListBox.Margin = new System.Windows.Forms.Padding(4);
             this.idListBox.Name = "idListBox";
             this.idListBox.Size = new System.Drawing.Size(165, 52);
             this.idListBox.TabIndex = 27;
@@ -121,7 +119,7 @@
             // id
             // 
             this.id.Location = new System.Drawing.Point(140, 225);
-            this.id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.id.Margin = new System.Windows.Forms.Padding(4);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(165, 22);
             this.id.TabIndex = 28;
@@ -133,7 +131,7 @@
             this.saveallButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveallButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
             this.saveallButton.Location = new System.Drawing.Point(1129, 545);
-            this.saveallButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveallButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveallButton.Name = "saveallButton";
             this.saveallButton.Size = new System.Drawing.Size(133, 37);
             this.saveallButton.TabIndex = 29;
@@ -146,8 +144,8 @@
             this.savethisButton.BackColor = System.Drawing.Color.White;
             this.savethisButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.savethisButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.savethisButton.Location = new System.Drawing.Point(140, 348);
-            this.savethisButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.savethisButton.Location = new System.Drawing.Point(153, 342);
+            this.savethisButton.Margin = new System.Windows.Forms.Padding(4);
             this.savethisButton.Name = "savethisButton";
             this.savethisButton.Size = new System.Drawing.Size(137, 37);
             this.savethisButton.TabIndex = 30;
@@ -162,14 +160,6 @@
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 54;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Price";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 125;
             // 
             // Column2
             // 
@@ -208,7 +198,7 @@
             this.Controls.Add(this.viewsale);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.logoutButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SalesForm";
             this.Text = "SalesForm";
             this.Load += new System.EventHandler(this.SalesForm_Load);
@@ -229,7 +219,6 @@
         private System.Windows.Forms.Button saveallButton;
         private System.Windows.Forms.Button savethisButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;

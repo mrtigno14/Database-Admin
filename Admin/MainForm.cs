@@ -63,7 +63,7 @@ namespace Admin
                 MessageBox.Show("Error: " + ex.Message);
             }
 
-            purchased.Enabled = false;
+            
             loadmedicines();
             // Set up the ComboBox with dropdown style
             idComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -160,7 +160,6 @@ namespace Admin
             name.Text = string.Empty;
             price.Text = string.Empty;
             quantity.Text = string.Empty;
-            purchased.Text = string.Empty;
             url.Text = string.Empty;
 
             // Reload medicines
@@ -196,7 +195,6 @@ namespace Admin
             name.Text = string.Empty;
             price.Text = string.Empty;
             quantity.Text = string.Empty;
-            purchased.Text = string.Empty;
             url.Text = string.Empty;
 
             viewmedicine.DataSource = null;
