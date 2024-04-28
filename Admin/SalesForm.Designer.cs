@@ -40,6 +40,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.viewsale)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            this.viewsale.Location = new System.Drawing.Point(425, 26);
+            this.viewsale.Location = new System.Drawing.Point(419, 166);
             this.viewsale.Margin = new System.Windows.Forms.Padding(4);
             this.viewsale.Name = "viewsale";
             this.viewsale.ReadOnly = true;
@@ -185,11 +186,26 @@
             this.Column4.ReadOnly = true;
             this.Column4.Width = 125;
             // 
+            // refreshButton
+            // 
+            this.refreshButton.BackColor = System.Drawing.Color.White;
+            this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
+            this.refreshButton.Location = new System.Drawing.Point(649, 37);
+            this.refreshButton.Margin = new System.Windows.Forms.Padding(4);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(113, 37);
+            this.refreshButton.TabIndex = 31;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // SalesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1307, 810);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.savethisButton);
             this.Controls.Add(this.saveallButton);
             this.Controls.Add(this.id);
@@ -222,5 +238,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

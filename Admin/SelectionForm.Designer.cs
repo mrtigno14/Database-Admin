@@ -39,9 +39,10 @@
             // 
             this.suggestionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(222)))), ((int)(((byte)(88)))));
             this.suggestionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.suggestionButton.Location = new System.Drawing.Point(330, 205);
+            this.suggestionButton.Location = new System.Drawing.Point(323, 263);
+            this.suggestionButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.suggestionButton.Name = "suggestionButton";
-            this.suggestionButton.Size = new System.Drawing.Size(120, 33);
+            this.suggestionButton.Size = new System.Drawing.Size(160, 41);
             this.suggestionButton.TabIndex = 4;
             this.suggestionButton.Text = "SUGGESTION";
             this.suggestionButton.UseVisualStyleBackColor = false;
@@ -51,9 +52,10 @@
             // 
             this.medicineButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(222)))), ((int)(((byte)(88)))));
             this.medicineButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.medicineButton.Location = new System.Drawing.Point(330, 148);
+            this.medicineButton.Location = new System.Drawing.Point(48, 262);
+            this.medicineButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.medicineButton.Name = "medicineButton";
-            this.medicineButton.Size = new System.Drawing.Size(120, 33);
+            this.medicineButton.Size = new System.Drawing.Size(160, 41);
             this.medicineButton.TabIndex = 5;
             this.medicineButton.Text = "MEDICINES";
             this.medicineButton.UseVisualStyleBackColor = false;
@@ -63,9 +65,10 @@
             // 
             this.logoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(222)))), ((int)(((byte)(88)))));
             this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutButton.Location = new System.Drawing.Point(703, 12);
+            this.logoutButton.Location = new System.Drawing.Point(937, 15);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(85, 30);
+            this.logoutButton.Size = new System.Drawing.Size(113, 37);
             this.logoutButton.TabIndex = 17;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
@@ -73,9 +76,10 @@
             // 
             // imageButton
             // 
-            this.imageButton.Location = new System.Drawing.Point(330, 259);
+            this.imageButton.Location = new System.Drawing.Point(580, 263);
+            this.imageButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.imageButton.Name = "imageButton";
-            this.imageButton.Size = new System.Drawing.Size(120, 33);
+            this.imageButton.Size = new System.Drawing.Size(160, 41);
             this.imageButton.TabIndex = 18;
             this.imageButton.Text = "IMAGES";
             this.imageButton.UseVisualStyleBackColor = true;
@@ -83,9 +87,10 @@
             // 
             // salesButton
             // 
-            this.salesButton.Location = new System.Drawing.Point(330, 309);
+            this.salesButton.Location = new System.Drawing.Point(821, 264);
+            this.salesButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.salesButton.Name = "salesButton";
-            this.salesButton.Size = new System.Drawing.Size(120, 33);
+            this.salesButton.Size = new System.Drawing.Size(160, 41);
             this.salesButton.TabIndex = 19;
             this.salesButton.Text = "SALES";
             this.salesButton.UseVisualStyleBackColor = true;
@@ -93,14 +98,15 @@
             // 
             // SelectionForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.salesButton);
             this.Controls.Add(this.imageButton);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.medicineButton);
             this.Controls.Add(this.suggestionButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SelectionForm";
             this.Text = "SelectionForm";
             this.Load += new System.EventHandler(this.SelectionForm_Load);

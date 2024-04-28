@@ -354,5 +354,12 @@ namespace Admin
                 MessageBox.Show("Error removing sales data: " + ex.Message);
             }
         }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            viewsale.DataSource = null;
+            viewsale.Rows.Clear();
+            loadsales();
+        }
     }
 }

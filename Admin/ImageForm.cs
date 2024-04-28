@@ -81,20 +81,38 @@ namespace Admin
             try
             {
                 FirebaseResponse response = client.Get("Files/");
-                Dictionary<string, Images> getImages = response.ResultAs<Dictionary<string, Images>>();
 
-                foreach (var get in getImages)
+                // Check if the response is null or empty
+                if (response != null && response.Body != "null")
                 {
-                    viewimage.Rows.Add(
-                        get.Value.ID,
-                        get.Value.fileName,
-                        get.Value.fileUrl
-                        );
+                    // Deserialize the response to Dictionary<string, Images>
+                    Dictionary<string, Images> getImages = response.ResultAs<Dictionary<string, Images>>();
+
+                    // Check if getImages is not null
+                    if (getImages != null)
+                    {
+                        foreach (var get in getImages)
+                        {
+                            viewimage.Rows.Add(
+                                get.Value.ID,
+                                get.Value.fileName,
+                                get.Value.fileUrl
+                            );
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No images found.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No data from Firebase.");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("WALANG LAMAN LODS");
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -142,8 +160,7 @@ namespace Admin
                     // Wait for the upload to complete
                     var downloadUrl = await task;
 
-                    // The downloadUrl variable now contains the URL of the uploaded file
-                    MessageBox.Show("Image uploaded successfully!");
+                    
 
                     // Set the URL text box with the download URL
                     url.Text = downloadUrl;
