@@ -78,12 +78,12 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.viewsuggestion.Location = new System.Drawing.Point(589, 128);
-            this.viewsuggestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.viewsuggestion.Location = new System.Drawing.Point(470, 123);
+            this.viewsuggestion.Margin = new System.Windows.Forms.Padding(4);
             this.viewsuggestion.Name = "viewsuggestion";
             this.viewsuggestion.ReadOnly = true;
             this.viewsuggestion.RowHeadersWidth = 51;
-            this.viewsuggestion.Size = new System.Drawing.Size(697, 544);
+            this.viewsuggestion.Size = new System.Drawing.Size(859, 629);
             this.viewsuggestion.TabIndex = 23;
             // 
             // Column1
@@ -138,8 +138,8 @@
             // 
             this.ProductDetailsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(192)))), ((int)(((byte)(185)))));
             this.ProductDetailsPanel.Controls.Add(this.label5);
-            this.ProductDetailsPanel.Location = new System.Drawing.Point(93, 123);
-            this.ProductDetailsPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ProductDetailsPanel.Location = new System.Drawing.Point(59, 125);
+            this.ProductDetailsPanel.Margin = new System.Windows.Forms.Padding(4);
             this.ProductDetailsPanel.Name = "ProductDetailsPanel";
             this.ProductDetailsPanel.Size = new System.Drawing.Size(373, 57);
             this.ProductDetailsPanel.TabIndex = 29;
@@ -172,8 +172,8 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(73, 158);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(39, 160);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(413, 464);
             this.panel1.TabIndex = 28;
@@ -181,7 +181,7 @@
             // sourcelink
             // 
             this.sourcelink.Location = new System.Drawing.Point(180, 404);
-            this.sourcelink.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sourcelink.Margin = new System.Windows.Forms.Padding(4);
             this.sourcelink.Name = "sourcelink";
             this.sourcelink.Size = new System.Drawing.Size(195, 25);
             this.sourcelink.TabIndex = 25;
@@ -190,7 +190,7 @@
             // description
             // 
             this.description.Location = new System.Drawing.Point(180, 194);
-            this.description.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.description.Margin = new System.Windows.Forms.Padding(4);
             this.description.Name = "description";
             this.description.Size = new System.Drawing.Size(195, 168);
             this.description.TabIndex = 24;
@@ -200,7 +200,7 @@
             // unavailable
             // 
             this.unavailable.Location = new System.Drawing.Point(180, 161);
-            this.unavailable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.unavailable.Margin = new System.Windows.Forms.Padding(4);
             this.unavailable.Name = "unavailable";
             this.unavailable.Size = new System.Drawing.Size(195, 25);
             this.unavailable.TabIndex = 23;
@@ -210,7 +210,7 @@
             // available
             // 
             this.available.Location = new System.Drawing.Point(180, 126);
-            this.available.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.available.Margin = new System.Windows.Forms.Padding(4);
             this.available.Name = "available";
             this.available.Size = new System.Drawing.Size(195, 25);
             this.available.TabIndex = 22;
@@ -219,7 +219,7 @@
             // keyword
             // 
             this.keyword.Location = new System.Drawing.Point(180, 89);
-            this.keyword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.keyword.Margin = new System.Windows.Forms.Padding(4);
             this.keyword.Name = "keyword";
             this.keyword.Size = new System.Drawing.Size(196, 25);
             this.keyword.TabIndex = 21;
@@ -251,7 +251,7 @@
             // id
             // 
             this.id.Location = new System.Drawing.Point(180, 50);
-            this.id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.id.Margin = new System.Windows.Forms.Padding(4);
             this.id.Name = "id";
             this.id.Size = new System.Drawing.Size(196, 22);
             this.id.TabIndex = 6;
@@ -306,8 +306,8 @@
             this.retrieveButton.BackColor = System.Drawing.Color.White;
             this.retrieveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.retrieveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.retrieveButton.Location = new System.Drawing.Point(311, 693);
-            this.retrieveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.retrieveButton.Location = new System.Drawing.Point(277, 695);
+            this.retrieveButton.Margin = new System.Windows.Forms.Padding(4);
             this.retrieveButton.Name = "retrieveButton";
             this.retrieveButton.Size = new System.Drawing.Size(113, 37);
             this.retrieveButton.TabIndex = 27;
@@ -320,8 +320,8 @@
             this.updateButton.BackColor = System.Drawing.Color.White;
             this.updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.updateButton.Location = new System.Drawing.Point(143, 693);
-            this.updateButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.updateButton.Location = new System.Drawing.Point(109, 695);
+            this.updateButton.Margin = new System.Windows.Forms.Padding(4);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(113, 37);
             this.updateButton.TabIndex = 26;
@@ -334,8 +334,8 @@
             this.removeButton.BackColor = System.Drawing.Color.White;
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.removeButton.Location = new System.Drawing.Point(311, 649);
-            this.removeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.removeButton.Location = new System.Drawing.Point(277, 651);
+            this.removeButton.Margin = new System.Windows.Forms.Padding(4);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(113, 37);
             this.removeButton.TabIndex = 25;
@@ -348,8 +348,8 @@
             this.addButton.BackColor = System.Drawing.Color.White;
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.addButton.Location = new System.Drawing.Point(143, 649);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addButton.Location = new System.Drawing.Point(109, 651);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(113, 37);
             this.addButton.TabIndex = 24;
@@ -363,7 +363,7 @@
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
             this.backButton.Location = new System.Drawing.Point(16, 34);
-            this.backButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(181, 59);
             this.backButton.TabIndex = 31;
@@ -377,7 +377,7 @@
             this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
             this.logoutButton.Location = new System.Drawing.Point(1168, 34);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(4);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(181, 59);
             this.logoutButton.TabIndex = 30;
@@ -390,7 +390,7 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label8);
             this.panel2.Location = new System.Drawing.Point(-1, 777);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1365, 63);
             this.panel2.TabIndex = 32;
@@ -441,7 +441,7 @@
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.viewsuggestion);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SuggestionForm";
             this.Text = "SuggestionForm";
             this.Load += new System.EventHandler(this.SuggestionForm_Load);
