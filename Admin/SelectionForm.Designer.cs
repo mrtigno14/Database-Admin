@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelectionForm));
             this.suggestionButton = new System.Windows.Forms.Button();
             this.medicineButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
             this.imageButton = new System.Windows.Forms.Button();
             this.salesButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.notifIcon = new System.Windows.Forms.PictureBox();
+            this.NotificationPanel = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.notifIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // suggestionButton
@@ -116,12 +120,34 @@
             this.label5.TabIndex = 20;
             this.label5.Text = "Select the database you want to access";
             // 
+            // notifIcon
+            // 
+            this.notifIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("notifIcon.BackgroundImage")));
+            this.notifIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.notifIcon.InitialImage = null;
+            this.notifIcon.Location = new System.Drawing.Point(1084, 10);
+            this.notifIcon.Name = "notifIcon";
+            this.notifIcon.Size = new System.Drawing.Size(94, 86);
+            this.notifIcon.TabIndex = 21;
+            this.notifIcon.TabStop = false;
+            this.notifIcon.Click += new System.EventHandler(this.notifIcon_Click);
+            // 
+            // NotificationPanel
+            // 
+            this.NotificationPanel.BackColor = System.Drawing.Color.White;
+            this.NotificationPanel.Location = new System.Drawing.Point(981, 120);
+            this.NotificationPanel.Name = "NotificationPanel";
+            this.NotificationPanel.Size = new System.Drawing.Size(371, 671);
+            this.NotificationPanel.TabIndex = 22;
+            // 
             // SelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(1365, 838);
+            this.Controls.Add(this.NotificationPanel);
+            this.Controls.Add(this.notifIcon);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.salesButton);
             this.Controls.Add(this.imageButton);
@@ -132,6 +158,7 @@
             this.Name = "SelectionForm";
             this.Text = "SelectionForm";
             this.Load += new System.EventHandler(this.SelectionForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.notifIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +172,7 @@
         private System.Windows.Forms.Button imageButton;
         private System.Windows.Forms.Button salesButton;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox notifIcon;
+        private System.Windows.Forms.Panel NotificationPanel;
     }
 }

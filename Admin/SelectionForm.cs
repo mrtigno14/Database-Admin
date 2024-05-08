@@ -23,9 +23,13 @@ namespace Admin
 
         private string username;
         private string password;
+        private bool isPanelVisible = false;
+
         public SelectionForm(string username, string password)
         {
             InitializeComponent();
+            NotificationPanel.Visible = false;
+
             this.username = username;
             this.password = password;
 
@@ -122,6 +126,22 @@ namespace Admin
             SalesForm salesForm = new SalesForm("username", "password");
             salesForm.Show();
             this.Hide();
+        }
+
+        private void notifIcon_Click(object sender, EventArgs e)
+        {
+            if (isPanelVisible)
+            {
+                //Sets to false if it was true
+                NotificationPanel.Visible = false;
+            }
+            else
+            {
+                //Sets to true if it was false
+                NotificationPanel.Visible = true;
+            }
+            //Toggles the visibility
+            isPanelVisible = !isPanelVisible;
         }
     }
 }
