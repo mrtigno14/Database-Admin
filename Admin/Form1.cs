@@ -24,6 +24,7 @@ namespace Admin
         private IFirebaseClient client;
 
         private bool showPassword = false;
+        private SelectionForm selectionForm;
 
         public Form1()
         {
@@ -151,8 +152,17 @@ namespace Admin
 
                     if (enteredUsername == storedUsername && enteredPassword == storedPassword)
                     {
-                        SelectionForm selectionForm = new SelectionForm("username", "password");
-                        selectionForm.Show();
+                        // Check if selectionForm is null or not visible, then create/show it
+                        if (selectionForm == null || selectionForm.IsDisposed)
+                        {
+                            selectionForm = new SelectionForm("username", "password");
+                            selectionForm.Show();
+                        }
+                        else
+                        {
+                            selectionForm.Focus(); // Bring existing form to front
+                        }
+
                         this.Hide();
                     }
                     else
@@ -170,7 +180,6 @@ namespace Admin
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
 
         private void AdminLogIn_Click(object sender, EventArgs e)
         {
