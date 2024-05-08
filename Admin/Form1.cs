@@ -32,10 +32,30 @@ namespace Admin
             InitializeComponent();
             InitializeTextBoxPlaceholder();
             textBox2.UseSystemPasswordChar = true;
+
+            // Set form border style to none
+            this.FormBorderStyle = FormBorderStyle.None;
+
+            // Set form location to center of the desktop resolution
+            this.StartPosition = FormStartPosition.Manual;
+            CenterFormOnScreen();
         }
 
-        
-        
+        private void CenterFormOnScreen()
+        {
+            // Calculate the center position based on the screen resolution
+            int screenWidth = Screen.PrimaryScreen.WorkingArea.Width;
+            int screenHeight = Screen.PrimaryScreen.WorkingArea.Height;
+            int formWidth = this.Width;
+            int formHeight = this.Height;
+
+            int centerX = (screenWidth - formWidth) / 2;
+            int centerY = (screenHeight - formHeight) / 2;
+
+            // Set the form's location to the calculated center position
+            this.Location = new Point(centerX, centerY);
+        }
+
         private void InitializeTextBoxPlaceholder()
         {
             // Set the placeholder text
