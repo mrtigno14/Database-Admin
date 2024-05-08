@@ -151,14 +151,9 @@ namespace Admin
 
                     if (enteredUsername == storedUsername && enteredPassword == storedPassword)
                     {
-                        MessageBox.Show("Login Successful!");
-                        // Add code to navigate to the next screen or perform other actions after successful login
-                        // Open the selection form with placeholder values for username and password
                         SelectionForm selectionForm = new SelectionForm("username", "password");
                         selectionForm.Show();
-
-                        // Close the login form
-                        this.Hide(); // or this.Close();
+                        this.Hide();
                     }
                     else
                     {
