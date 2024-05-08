@@ -24,6 +24,7 @@ namespace Admin
         private IFirebaseClient client;
 
         private bool showPassword = false;
+        private bool messageBoxShown = false;
         private SelectionForm selectionForm;
 
         public Form1()
@@ -137,42 +138,52 @@ namespace Admin
         {
             try
             {
-                // Execute Firebase operation asynchronously using Task.Run
-                FirebaseResponse response = await Task.Run(() => client.Get("Users/userId_1"));
-                var user = response.ResultAs<Dictionary<string, string>>();
-
-                // Check if the entered username and password match the credentials in the database
-                string enteredUsername = textBox1.Text;
-                string enteredPassword = textBox2.Text;
-
-                if (user != null && user.ContainsKey("Username") && user.ContainsKey("Password"))
+                // Check if message box is already shown, if not, proceed
+                if (!messageBoxShown)
                 {
-                    string storedUsername = user["Username"];
-                    string storedPassword = user["Password"];
+                    // Set the flag to true to prevent multiple message boxes from showing
+                    messageBoxShown = true;
 
-                    if (enteredUsername == storedUsername && enteredPassword == storedPassword)
+                    // Execute Firebase operation asynchronously using Task.Run
+                    FirebaseResponse response = await Task.Run(() => client.Get("Users/userId_1"));
+                    var user = response.ResultAs<Dictionary<string, string>>();
+
+                    // Check if the entered username and password match the credentials in the database
+                    string enteredUsername = textBox1.Text;
+                    string enteredPassword = textBox2.Text;
+
+                    if (user != null && user.ContainsKey("Username") && user.ContainsKey("Password"))
                     {
-                        // Check if selectionForm is null or not visible, then create/show it
-                        if (selectionForm == null || selectionForm.IsDisposed)
+                        string storedUsername = user["Username"];
+                        string storedPassword = user["Password"];
+
+                        if (enteredUsername == storedUsername && enteredPassword == storedPassword)
                         {
-                            selectionForm = new SelectionForm("username", "password");
-                            selectionForm.Show();
+                            // Check if selectionForm is null or not visible, then create/show it
+                            if (selectionForm == null || selectionForm.IsDisposed)
+                            {
+                                selectionForm = new SelectionForm("username", "password");
+                                selectionForm.Show();
+                            }
+                            else
+                            {
+                                selectionForm.Focus(); // Bring existing form to front
+                            }
+
+                            this.Hide();
                         }
                         else
                         {
-                            selectionForm.Focus(); // Bring existing form to front
+                            MessageBox.Show("Invalid username or password.");
                         }
-
-                        this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Invalid username or password.");
+                        MessageBox.Show("User not found.");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("User not found.");
+
+                    // Reset the flag after showing the message box
+                    messageBoxShown = false;
                 }
             }
             catch (Exception ex)
