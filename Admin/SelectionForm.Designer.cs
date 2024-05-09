@@ -36,8 +36,8 @@
             this.salesButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.notifIcon = new System.Windows.Forms.PictureBox();
-            this.NotificationPanel = new System.Windows.Forms.Panel();
             this.NotificationText = new System.Windows.Forms.Panel();
+            this.NotificationPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.notifIcon)).BeginInit();
             this.NotificationPanel.SuspendLayout();
             this.SuspendLayout();
@@ -129,23 +129,23 @@
             this.notifIcon.TabStop = false;
             this.notifIcon.Click += new System.EventHandler(this.notifIcon_Click);
             // 
+            // NotificationText
+            // 
+            this.NotificationText.Location = new System.Drawing.Point(15, 24);
+            this.NotificationText.Name = "NotificationText";
+            this.NotificationText.Size = new System.Drawing.Size(242, 501);
+            this.NotificationText.TabIndex = 0;
+            this.NotificationText.Paint += new System.Windows.Forms.PaintEventHandler(this.NotificationText_Paint);
+            // 
             // NotificationPanel
             // 
             this.NotificationPanel.BackColor = System.Drawing.Color.White;
             this.NotificationPanel.Controls.Add(this.NotificationText);
             this.NotificationPanel.Location = new System.Drawing.Point(736, 98);
-            this.NotificationPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NotificationPanel.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationPanel.Name = "NotificationPanel";
             this.NotificationPanel.Size = new System.Drawing.Size(278, 545);
             this.NotificationPanel.TabIndex = 22;
-            // 
-            // NotificationText
-            // 
-            this.NotificationText.Location = new System.Drawing.Point(22, 24);
-            this.NotificationText.Name = "NotificationText";
-            this.NotificationText.Size = new System.Drawing.Size(236, 501);
-            this.NotificationText.TabIndex = 0;
-            this.NotificationText.Paint += new System.Windows.Forms.PaintEventHandler(this.NotificationText_Paint);
             // 
             // SelectionForm
             // 
@@ -180,7 +180,7 @@
         private System.Windows.Forms.Button salesButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox notifIcon;
-        private System.Windows.Forms.Panel NotificationPanel;
         private System.Windows.Forms.Panel NotificationText;
+        private System.Windows.Forms.Panel NotificationPanel;
     }
 }

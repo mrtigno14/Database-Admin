@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Admin
 {
     public partial class SelectionForm : Form
@@ -25,7 +26,8 @@ namespace Admin
         private string username;
         private string password;
         private bool isPanelVisible = false;
-
+        private List<int> previousValues = new List<int>();
+        private System.Windows.Forms.Timer timer;
 
 
         public SelectionForm(string username, string password)
@@ -42,6 +44,11 @@ namespace Admin
             // Set form location to center of the desktop resolution
             this.StartPosition = FormStartPosition.Manual;
             CenterFormOnScreen();
+            // Set up timer
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 10000; // Update every 10 seconds (adjust as needed)
+            timer.Tick += Timer_Tick;
+            timer.Start();
 
             // Initialize Firebase client
             try
@@ -72,6 +79,11 @@ namespace Admin
 
         }
 
+        private async void Timer_Tick(object sender, EventArgs e)
+        {
+            await UpdateNotificationPanel();
+        }
+
         private async Task UpdateNotificationPanel()
         {
             try
@@ -80,21 +92,34 @@ namespace Admin
                 FirebaseResponse response = await client.GetAsync("Sukli/01/available");
                 int availableValue = response.ResultAs<int>();
 
-                // Update the UI controls from the UI thread
-                Invoke((MethodInvoker)delegate
+                // If available value is within range and different from previous values, create/update label in NotificationPanel
+                if (availableValue < 30 && !previousValues.Contains(availableValue))
                 {
-                    // Clear existing labels in NotificationText panel
-                    NotificationText.Controls.Clear();
+                    // Add the new value to the list of previous values
+                    previousValues.Add(availableValue);
 
-                    // If available value is less than 30, create/update label in NotificationPanel
-                    if (availableValue < 30)
+                    // Convert availableValue to string
+                    string stringValue = availableValue.ToString();
+
+                    // Calculate the Y-coordinate position of the new label
+                    int newY = 0;
+                    if (NotificationText.Controls.Count > 0)
                     {
-                        Label label = new Label();
-                        label.Text = $"The coin change is {availableValue} left!";
-                        label.ForeColor = Color.Red; // Set color as desired
-                        NotificationText.Controls.Add(label);
+                        newY = NotificationText.Controls[NotificationText.Controls.Count - 1].Location.Y + NotificationText.Controls[NotificationText.Controls.Count - 1].Height + 5; // Add padding between labels
                     }
-                });
+
+                    // Update the UI controls from the UI thread
+                    Invoke((MethodInvoker)delegate
+                    {
+                        // Create and add a new label to the panel
+                        Label label = new Label();
+                        label.Text = "The coin change is " + stringValue + " left!";
+                        label.ForeColor = Color.Red; // Set color as desired
+                        label.AutoSize = true;
+                        label.Location = new Point(0, newY);
+                        NotificationText.Controls.Add(label);
+                    });
+                }
             }
             catch (Exception ex)
             {
