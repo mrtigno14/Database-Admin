@@ -1,5 +1,6 @@
 ﻿using FireSharp.Config;
 using FireSharp.Interfaces;
+using FireSharp.Response;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,8 @@ namespace Admin
         private string password;
         private bool isPanelVisible = false;
 
+
+
         public SelectionForm(string username, string password)
         {
             InitializeComponent();
@@ -39,7 +42,67 @@ namespace Admin
             // Set form location to center of the desktop resolution
             this.StartPosition = FormStartPosition.Manual;
             CenterFormOnScreen();
+
+            // Initialize Firebase client
+            try
+            {
+                client = new FireSharp.FirebaseClient(config);
+                if (client == null)
+                {
+                    MessageBox.Show("Failed to connect to Firebase.");
+                }
+                else
+                {
+                    // Start periodic data update task
+                    Task.Run(async () =>
+                    {
+                        while (true)
+                        {
+                            await UpdateNotificationPanel();
+                            await Task.Delay(TimeSpan.FromSeconds(10)); // Adjust the interval as needed
+                        }
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+
         }
+
+        private async Task UpdateNotificationPanel()
+        {
+            try
+            {
+                // Get the value of "available" node inside "Sukli"
+                FirebaseResponse response = await client.GetAsync("Sukli/01/available");
+                int availableValue = response.ResultAs<int>();
+
+                // Update the UI controls from the UI thread
+                Invoke((MethodInvoker)delegate
+                {
+                    // Clear existing labels in NotificationText panel
+                    NotificationText.Controls.Clear();
+
+                    // If available value is less than 30, create/update label in NotificationPanel
+                    if (availableValue < 30)
+                    {
+                        Label label = new Label();
+                        label.Text = $"The coin change is {availableValue} left!";
+                        label.ForeColor = Color.Red; // Set color as desired
+                        NotificationText.Controls.Add(label);
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
 
         private void CenterFormOnScreen()
         {
@@ -55,6 +118,20 @@ namespace Admin
             // Set the form's location to the calculated center position
             this.Location = new Point(centerX, centerY);
         }
+
+        
+
+        private void AddOrUpdateNotification(string text)
+        {
+            // Create or update text label inside NotificationText panel
+            Label label = new Label();
+            label.Text = text;
+            label.AutoSize = true;
+            label.ForeColor = Color.Black;
+            label.Margin = new Padding(0, 5, 0, 5);
+            NotificationText.Controls.Add(label);
+        }
+
 
         private void suggestionButton_Click(object sender, EventArgs e)
         {
@@ -142,6 +219,11 @@ namespace Admin
             }
             //Toggles the visibility
             isPanelVisible = !isPanelVisible;
+        }
+
+        private void NotificationText_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
