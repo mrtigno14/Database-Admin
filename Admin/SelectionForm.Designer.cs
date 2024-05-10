@@ -121,8 +121,8 @@
             this.notifIcon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("notifIcon.BackgroundImage")));
             this.notifIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.notifIcon.InitialImage = null;
-            this.notifIcon.Location = new System.Drawing.Point(813, 8);
-            this.notifIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.notifIcon.Location = new System.Drawing.Point(854, 11);
+            this.notifIcon.Margin = new System.Windows.Forms.Padding(2);
             this.notifIcon.Name = "notifIcon";
             this.notifIcon.Size = new System.Drawing.Size(70, 70);
             this.notifIcon.TabIndex = 21;
@@ -131,9 +131,9 @@
             // 
             // NotificationText
             // 
-            this.NotificationText.Location = new System.Drawing.Point(15, 24);
+            this.NotificationText.Location = new System.Drawing.Point(3, 3);
             this.NotificationText.Name = "NotificationText";
-            this.NotificationText.Size = new System.Drawing.Size(242, 501);
+            this.NotificationText.Size = new System.Drawing.Size(232, 552);
             this.NotificationText.TabIndex = 0;
             this.NotificationText.Paint += new System.Windows.Forms.PaintEventHandler(this.NotificationText_Paint);
             // 
@@ -141,10 +141,10 @@
             // 
             this.NotificationPanel.BackColor = System.Drawing.Color.White;
             this.NotificationPanel.Controls.Add(this.NotificationText);
-            this.NotificationPanel.Location = new System.Drawing.Point(736, 98);
+            this.NotificationPanel.Location = new System.Drawing.Point(776, 85);
             this.NotificationPanel.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationPanel.Name = "NotificationPanel";
-            this.NotificationPanel.Size = new System.Drawing.Size(278, 545);
+            this.NotificationPanel.Size = new System.Drawing.Size(238, 558);
             this.NotificationPanel.TabIndex = 22;
             // 
             // SelectionForm
