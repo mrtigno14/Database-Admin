@@ -30,7 +30,7 @@ namespace Admin
         public Form1()
         {
             InitializeComponent();
-            InitializeTextBoxPlaceholder();
+            
             textBox2.UseSystemPasswordChar = true;
 
             // Set form border style to none
@@ -56,34 +56,8 @@ namespace Admin
             this.Location = new Point(centerX, centerY);
         }
 
-        private void InitializeTextBoxPlaceholder()
-        {
-            // Set the placeholder text
-            //textBox1.Text = "Enter Username";
-            //textBox2.Text = "Enter Password";
-
-            // Change text color to gray
-            //textBox1.ForeColor = Color.Gray;
-            //textBox2.ForeColor = Color.Gray;
-
-            
-            
-        }
-
-        private void TextBox_Enter(object sender, EventArgs e)
-        {
-            // Clear the placeholder text when textbox is focused
-            TextBox textBox = sender as TextBox;
-            if (textBox != null && (textBox.Text == "Enter Username" || textBox.Text == "Enter Password"))
-            {
-                textBox.Text = "";
-                textBox.ForeColor = SystemColors.WindowText; // Change text color to black
-            }
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-
             try
             {
                 client = new FireSharp.FirebaseClient(config);
@@ -188,36 +162,6 @@ namespace Admin
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-        }
-
-        private void AdminLogIn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void StartScreenTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void exitButton_Click(object sender, EventArgs e)

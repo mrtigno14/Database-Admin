@@ -120,7 +120,6 @@
             this.amount.Name = "amount";
             this.amount.Size = new System.Drawing.Size(125, 20);
             this.amount.TabIndex = 29;
-            this.amount.TextChanged += new System.EventHandler(this.amount_TextChanged);
             // 
             // label3
             // 

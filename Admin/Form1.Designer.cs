@@ -97,7 +97,6 @@
             this.AdminLogIn.Size = new System.Drawing.Size(265, 46);
             this.AdminLogIn.TabIndex = 0;
             this.AdminLogIn.Text = "Admin Login ";
-            this.AdminLogIn.Click += new System.EventHandler(this.AdminLogIn_Click);
             // 
             // label1
             // 
@@ -137,7 +136,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(599, 439);
             this.panel3.TabIndex = 19;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // showButton
             // 

@@ -109,7 +109,17 @@ namespace Admin
 
         private void CoinForm_Load(object sender, EventArgs e)
         {
-
+            // Add code to detect whether the user is logged in
+            if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+            {
+                // User is logged in
+                // Perform necessary actions
+            }
+            else
+            {
+                // User is not logged in
+                // Redirect to login form or handle accordingly
+            }
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -181,14 +191,41 @@ namespace Admin
             }
         }
 
-        private void updateButton_Click(object sender, EventArgs e)
+        private async void updateButton_Click(object sender, EventArgs e)
         {
+            // Get the input amount from the TextBox
+            if (int.TryParse(amount.Text, out int inputValue))
+            {
+                try
+                {
+                    // Update the value in Firebase
+                    SetResponse setResponse = await client.SetAsync("Sukli/01/available", inputValue);
+                    if (setResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        // Update successful
+                        MessageBox.Show("Value updated successfully.");
 
+                        // Update the label to reflect the new value
+                        coinAmount.Text = inputValue.ToString();
+
+                        // Clear the textbox
+                        amount.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update value.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating value: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid numeric value.");
+            }
         }
 
-        private void amount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
