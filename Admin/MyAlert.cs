@@ -22,7 +22,7 @@ namespace Admin
 
             // Initialize the timer
             closeTimer = new Timer();
-            closeTimer.Interval = 5000; // 5 seconds
+            closeTimer.Interval = 3000; // 3 seconds
             closeTimer.Tick += CloseTimer_Tick;
 
             // Set button1 properties for transparency

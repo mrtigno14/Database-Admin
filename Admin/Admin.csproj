@@ -257,6 +257,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CoinForm.Designer.cs">
+      <DependentUpon>CoinForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ellipse.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -308,6 +314,9 @@
     <Compile Include="SuggestionForm.Designer.cs">
       <DependentUpon>SuggestionForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CoinForm.resx">
+      <DependentUpon>CoinForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

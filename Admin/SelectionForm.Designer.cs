@@ -38,6 +38,7 @@
             this.notifIcon = new System.Windows.Forms.PictureBox();
             this.NotificationText = new System.Windows.Forms.Panel();
             this.NotificationPanel = new System.Windows.Forms.Panel();
+            this.coinButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.notifIcon)).BeginInit();
             this.NotificationPanel.SuspendLayout();
             this.SuspendLayout();
@@ -147,12 +148,25 @@
             this.NotificationPanel.Size = new System.Drawing.Size(238, 558);
             this.NotificationPanel.TabIndex = 22;
             // 
+            // coinButton
+            // 
+            this.coinButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coinButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
+            this.coinButton.Location = new System.Drawing.Point(410, 579);
+            this.coinButton.Name = "coinButton";
+            this.coinButton.Size = new System.Drawing.Size(211, 61);
+            this.coinButton.TabIndex = 23;
+            this.coinButton.Text = "COINS";
+            this.coinButton.UseVisualStyleBackColor = true;
+            this.coinButton.Click += new System.EventHandler(this.coinButton_Click);
+            // 
             // SelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(1024, 681);
+            this.Controls.Add(this.coinButton);
             this.Controls.Add(this.NotificationPanel);
             this.Controls.Add(this.notifIcon);
             this.Controls.Add(this.label5);
@@ -182,5 +196,6 @@
         private System.Windows.Forms.PictureBox notifIcon;
         private System.Windows.Forms.Panel NotificationText;
         private System.Windows.Forms.Panel NotificationPanel;
+        private System.Windows.Forms.Button coinButton;
     }
 }

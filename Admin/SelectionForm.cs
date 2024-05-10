@@ -223,6 +223,14 @@ namespace Admin
             this.Hide();
         }
 
+        private void coinButton_Click(object sender, EventArgs e)
+        {
+            // Open the MainForm with provided username and password
+            CoinForm coinForm = new CoinForm("username", "password");
+            coinForm.Show();
+            this.Hide();
+        }
+
         private void notifIcon_Click(object sender, EventArgs e)
         {
             if (isPanelVisible)
@@ -243,5 +251,7 @@ namespace Admin
         {
 
         }
+
+        
     }
 }
