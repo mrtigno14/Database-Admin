@@ -77,5 +77,25 @@ namespace Admin
             loginForm.Show();
             this.Hide();
         }
+
+        private void coinAmount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void amount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
