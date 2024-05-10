@@ -118,6 +118,10 @@ namespace Admin
                         label.AutoSize = true;
                         label.Location = new Point(0, newY);
                         NotificationText.Controls.Add(label);
+
+                        // Show MyAlert form as a pop-up notification
+                        MyAlert alertForm = new MyAlert();
+                        alertForm.ShowAlert(label.Text);
                     });
                 }
             }
@@ -144,18 +148,7 @@ namespace Admin
             this.Location = new Point(centerX, centerY);
         }
 
-        
-
-        private void AddOrUpdateNotification(string text)
-        {
-            // Create or update text label inside NotificationText panel
-            Label label = new Label();
-            label.Text = text;
-            label.AutoSize = true;
-            label.ForeColor = Color.Black;
-            label.Margin = new Padding(0, 5, 0, 5);
-            NotificationText.Controls.Add(label);
-        }
+      
 
 
         private void suggestionButton_Click(object sender, EventArgs e)
