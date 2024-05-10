@@ -66,11 +66,8 @@ namespace Admin
             //textBox1.ForeColor = Color.Gray;
             //textBox2.ForeColor = Color.Gray;
 
-            // Add event handlers
-            textBox1.Enter += TextBox_Enter;
-            textBox1.Leave += TextBox_Leave;
-            textBox2.Enter += TextBox_Enter;
-            textBox2.Leave += TextBox_Leave;
+            
+            
         }
 
         private void TextBox_Enter(object sender, EventArgs e)
@@ -82,25 +79,6 @@ namespace Admin
                 textBox.Text = "";
                 textBox.ForeColor = SystemColors.WindowText; // Change text color to black
             }
-        }
-
-        private void TextBox_Leave(object sender, EventArgs e)
-        {
-            // Restore placeholder text if textbox is left empty
-            TextBox textBox = sender as TextBox;
-            if (textBox != null && string.IsNullOrWhiteSpace(textBox.Text))
-            {
-                if (textBox == textBox1)
-                    textBox.Text = "Enter Username";
-                else if (textBox == textBox2)
-                    textBox.Text = "Enter Password";
-
-                textBox.ForeColor = Color.Gray; // Change text color to gray
-            }
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Form1_Load(object sender, EventArgs e)

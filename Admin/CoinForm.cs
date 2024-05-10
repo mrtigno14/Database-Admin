@@ -1,5 +1,6 @@
 ﻿using FireSharp.Config;
 using FireSharp.Interfaces;
+using FireSharp.Response;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,8 @@ namespace Admin
         };
         IFirebaseClient client;
 
+        private Timer updateTimer;
+
         private string username;
         private string password;
         public CoinForm(string username, string password)
@@ -35,7 +38,59 @@ namespace Admin
             // Set form location to center of the desktop resolution
             this.StartPosition = FormStartPosition.Manual;
             CenterFormOnScreen();
+
+            // Initialize Firebase client
+            try
+            {
+                client = new FireSharp.FirebaseClient(config);
+                if (client == null)
+                {
+                    MessageBox.Show("Failed to connect to Firebase.");
+                }
+                else
+                {
+                    // Fetch and update coin amount initially
+                    FetchAndUpdateCoinAmount();
+
+                    // Start timer to periodically update coin amount
+                    updateTimer = new Timer();
+                    updateTimer.Interval = 10000; // Update every 10 seconds
+                    updateTimer.Tick += UpdateTimer_Tick;
+                    updateTimer.Start();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
+
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            // Fetch and update coin amount periodically
+            FetchAndUpdateCoinAmount();
+        }
+
+        private async void FetchAndUpdateCoinAmount()
+        {
+            try
+            {
+                // Fetch data from Firebase
+                FirebaseResponse response = await client.GetAsync("Sukli/01/available");
+                int? availableValue = response.ResultAs<int?>(); // Use int? instead of int
+
+                if (availableValue.HasValue) // Check if the nullable int has a value
+                {
+                    // Update coinAmount label with fetched data
+                    coinAmount.Text = availableValue.Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error fetching data from Firebase: " + ex.Message);
+            }
+        }
+
 
         private void CenterFormOnScreen()
         {
@@ -83,9 +138,47 @@ namespace Admin
 
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private async void addButton_Click(object sender, EventArgs e)
         {
+            // Get the input amount from the TextBox
+            if (int.TryParse(amount.Text, out int inputValue))
+            {
+                try
+                {
+                    // Fetch current value from Firebase
+                    FirebaseResponse response = await client.GetAsync("Sukli/01/available");
+                    int currentValue = response.ResultAs<int>();
 
+                    // Add input value to the current value
+                    int newValue = currentValue + inputValue;
+
+                    // Update the value in Firebase
+                    SetResponse setResponse = await client.SetAsync("Sukli/01/available", newValue);
+                    if (setResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        // Update successful
+                        MessageBox.Show("Value updated successfully.");
+
+                        // Update the label to reflect the new value
+                        coinAmount.Text = newValue.ToString();
+
+                        // Clear the textbox
+                        amount.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update value.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error updating value: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid numeric value.");
+            }
         }
 
         private void updateButton_Click(object sender, EventArgs e)

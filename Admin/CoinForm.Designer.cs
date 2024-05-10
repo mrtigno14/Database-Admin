@@ -84,9 +84,8 @@
             this.coinAmount.ForeColor = System.Drawing.Color.Red;
             this.coinAmount.Location = new System.Drawing.Point(492, 124);
             this.coinAmount.Name = "coinAmount";
-            this.coinAmount.Size = new System.Drawing.Size(41, 15);
+            this.coinAmount.Size = new System.Drawing.Size(0, 15);
             this.coinAmount.TabIndex = 26;
-            this.coinAmount.Text = "label2";
             this.coinAmount.Click += new System.EventHandler(this.coinAmount_Click);
             // 
             // addButton
@@ -129,9 +128,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(51, 72);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 15);
+            this.label3.Size = new System.Drawing.Size(81, 15);
             this.label3.TabIndex = 30;
-            this.label3.Text = "Enter amount to be added";
+            this.label3.Text = "Enter amount";
             // 
             // panel1
             // 
