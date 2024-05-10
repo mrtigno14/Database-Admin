@@ -26,6 +26,7 @@ namespace Admin
 
         private string username;
         private string password;
+
         public CoinForm(string username, string password)
         {
             InitializeComponent();
@@ -150,7 +151,7 @@ namespace Admin
 
         private async void addButton_Click(object sender, EventArgs e)
         {
-            // Get the input amount from the TextBox
+            // Check if the input amount from the TextBox is an integer
             if (int.TryParse(amount.Text, out int inputValue))
             {
                 try
@@ -187,13 +188,13 @@ namespace Admin
             }
             else
             {
-                MessageBox.Show("Please enter a valid numeric value.");
+                MessageBox.Show("Please enter a valid number.");
             }
         }
 
         private async void updateButton_Click(object sender, EventArgs e)
         {
-            // Get the input amount from the TextBox
+            // Check if the input amount from the TextBox is an integer
             if (int.TryParse(amount.Text, out int inputValue))
             {
                 try
@@ -223,7 +224,7 @@ namespace Admin
             }
             else
             {
-                MessageBox.Show("Please enter a valid numeric value.");
+                MessageBox.Show("Please enter a valid number.");
             }
         }
 

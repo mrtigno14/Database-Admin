@@ -136,7 +136,6 @@
             this.NotificationText.Name = "NotificationText";
             this.NotificationText.Size = new System.Drawing.Size(232, 552);
             this.NotificationText.TabIndex = 0;
-            this.NotificationText.Paint += new System.Windows.Forms.PaintEventHandler(this.NotificationText_Paint);
             // 
             // NotificationPanel
             // 

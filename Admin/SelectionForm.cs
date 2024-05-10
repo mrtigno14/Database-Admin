@@ -75,8 +75,6 @@ namespace Admin
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-
-
         }
 
         private async void Timer_Tick(object sender, EventArgs e)
@@ -246,12 +244,6 @@ namespace Admin
             //Toggles the visibility
             isPanelVisible = !isPanelVisible;
         }
-
-        private void NotificationText_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        
+    
     }
 }
