@@ -61,10 +61,9 @@
             this.backButton.BackColor = System.Drawing.Color.White;
             this.backButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.backButton.Location = new System.Drawing.Point(16, 15);
-            this.backButton.Margin = new System.Windows.Forms.Padding(4);
+            this.backButton.Location = new System.Drawing.Point(12, 12);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(181, 59);
+            this.backButton.Size = new System.Drawing.Size(136, 48);
             this.backButton.TabIndex = 22;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = false;
@@ -75,10 +74,9 @@
             this.logoutButton.BackColor = System.Drawing.Color.White;
             this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.logoutButton.Location = new System.Drawing.Point(1171, 15);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(4);
+            this.logoutButton.Location = new System.Drawing.Point(878, 12);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(181, 59);
+            this.logoutButton.Size = new System.Drawing.Size(136, 48);
             this.logoutButton.TabIndex = 23;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
@@ -94,12 +92,11 @@
             this.Column1,
             this.Column2,
             this.Column3});
-            this.viewimage.Location = new System.Drawing.Point(470, 123);
-            this.viewimage.Margin = new System.Windows.Forms.Padding(4);
+            this.viewimage.Location = new System.Drawing.Point(352, 100);
             this.viewimage.Name = "viewimage";
             this.viewimage.ReadOnly = true;
             this.viewimage.RowHeadersWidth = 51;
-            this.viewimage.Size = new System.Drawing.Size(859, 590);
+            this.viewimage.Size = new System.Drawing.Size(644, 479);
             this.viewimage.TabIndex = 24;
             // 
             // Column1
@@ -129,10 +126,9 @@
             // imageBox
             // 
             this.imageBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.imageBox.Location = new System.Drawing.Point(66, 123);
-            this.imageBox.Margin = new System.Windows.Forms.Padding(4);
+            this.imageBox.Location = new System.Drawing.Point(50, 100);
             this.imageBox.Name = "imageBox";
-            this.imageBox.Size = new System.Drawing.Size(353, 278);
+            this.imageBox.Size = new System.Drawing.Size(265, 226);
             this.imageBox.TabIndex = 25;
             this.imageBox.TabStop = false;
             // 
@@ -141,10 +137,9 @@
             this.browseButton.BackColor = System.Drawing.Color.White;
             this.browseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.browseButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.browseButton.Location = new System.Drawing.Point(114, 620);
-            this.browseButton.Margin = new System.Windows.Forms.Padding(4);
+            this.browseButton.Location = new System.Drawing.Point(86, 504);
             this.browseButton.Name = "browseButton";
-            this.browseButton.Size = new System.Drawing.Size(113, 37);
+            this.browseButton.Size = new System.Drawing.Size(85, 30);
             this.browseButton.TabIndex = 26;
             this.browseButton.Text = "Browse";
             this.browseButton.UseVisualStyleBackColor = false;
@@ -155,10 +150,9 @@
             this.insertButton.BackColor = System.Drawing.Color.White;
             this.insertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.insertButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.insertButton.Location = new System.Drawing.Point(262, 620);
-            this.insertButton.Margin = new System.Windows.Forms.Padding(4);
+            this.insertButton.Location = new System.Drawing.Point(196, 504);
             this.insertButton.Name = "insertButton";
-            this.insertButton.Size = new System.Drawing.Size(113, 37);
+            this.insertButton.Size = new System.Drawing.Size(85, 30);
             this.insertButton.TabIndex = 27;
             this.insertButton.Text = "Insert";
             this.insertButton.UseVisualStyleBackColor = false;
@@ -169,10 +163,9 @@
             this.retrieveButton.BackColor = System.Drawing.Color.White;
             this.retrieveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.retrieveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.retrieveButton.Location = new System.Drawing.Point(114, 665);
-            this.retrieveButton.Margin = new System.Windows.Forms.Padding(4);
+            this.retrieveButton.Location = new System.Drawing.Point(86, 540);
             this.retrieveButton.Name = "retrieveButton";
-            this.retrieveButton.Size = new System.Drawing.Size(113, 37);
+            this.retrieveButton.Size = new System.Drawing.Size(85, 30);
             this.retrieveButton.TabIndex = 28;
             this.retrieveButton.Text = "Retrieve";
             this.retrieveButton.UseVisualStyleBackColor = false;
@@ -183,10 +176,9 @@
             this.copyButton.BackColor = System.Drawing.Color.White;
             this.copyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.copyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.copyButton.Location = new System.Drawing.Point(262, 665);
-            this.copyButton.Margin = new System.Windows.Forms.Padding(4);
+            this.copyButton.Location = new System.Drawing.Point(196, 540);
             this.copyButton.Name = "copyButton";
-            this.copyButton.Size = new System.Drawing.Size(113, 37);
+            this.copyButton.Size = new System.Drawing.Size(85, 30);
             this.copyButton.TabIndex = 29;
             this.copyButton.Text = "Copy Link";
             this.copyButton.UseVisualStyleBackColor = false;
@@ -194,57 +186,51 @@
             // 
             // name
             // 
-            this.name.Location = new System.Drawing.Point(127, 66);
-            this.name.Margin = new System.Windows.Forms.Padding(4);
+            this.name.Location = new System.Drawing.Point(95, 54);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(195, 25);
+            this.name.Size = new System.Drawing.Size(147, 21);
             this.name.TabIndex = 30;
             this.name.Text = "";
             // 
             // url
             // 
-            this.url.Location = new System.Drawing.Point(126, 103);
-            this.url.Margin = new System.Windows.Forms.Padding(4);
+            this.url.Location = new System.Drawing.Point(94, 84);
             this.url.Name = "url";
-            this.url.Size = new System.Drawing.Size(195, 25);
+            this.url.Size = new System.Drawing.Size(147, 21);
             this.url.TabIndex = 31;
             this.url.Text = "";
             // 
             // id
             // 
-            this.id.Location = new System.Drawing.Point(126, 34);
-            this.id.Margin = new System.Windows.Forms.Padding(4);
+            this.id.Location = new System.Drawing.Point(94, 28);
             this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(196, 22);
+            this.id.Size = new System.Drawing.Size(148, 20);
             this.id.TabIndex = 32;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 34);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(38, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(20, 16);
+            this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 33;
             this.label1.Text = "ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 66);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(35, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 16);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 34;
             this.label2.Text = "File Name";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 103);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(35, 84);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 16);
+            this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 35;
             this.label3.Text = "File Url";
             // 
@@ -253,10 +239,9 @@
             this.removeButton.BackColor = System.Drawing.Color.White;
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.removeButton.Location = new System.Drawing.Point(193, 710);
-            this.removeButton.Margin = new System.Windows.Forms.Padding(4);
+            this.removeButton.Location = new System.Drawing.Point(145, 577);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(113, 37);
+            this.removeButton.Size = new System.Drawing.Size(85, 30);
             this.removeButton.TabIndex = 36;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = false;
@@ -267,10 +252,9 @@
             this.refreshButton.BackColor = System.Drawing.Color.White;
             this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.refreshButton.Location = new System.Drawing.Point(1216, 721);
-            this.refreshButton.Margin = new System.Windows.Forms.Padding(4);
+            this.refreshButton.Location = new System.Drawing.Point(912, 586);
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(113, 37);
+            this.refreshButton.Size = new System.Drawing.Size(85, 30);
             this.refreshButton.TabIndex = 37;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = false;
@@ -285,20 +269,18 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(66, 429);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(50, 349);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(353, 154);
+            this.panel1.Size = new System.Drawing.Size(265, 125);
             this.panel1.TabIndex = 38;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Location = new System.Drawing.Point(0, 778);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Location = new System.Drawing.Point(0, 633);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1365, 63);
+            this.panel2.Size = new System.Drawing.Size(1024, 51);
             this.panel2.TabIndex = 39;
             // 
             // label8
@@ -307,20 +289,19 @@
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.label8.Location = new System.Drawing.Point(467, 17);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(376, 18);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(330, 20);
+            this.label8.Size = new System.Drawing.Size(283, 17);
             this.label8.TabIndex = 16;
             this.label8.Text = "© 2024 LMMN, Inc. All rights reserved";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // ImageForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(1365, 838);
+            this.ClientSize = new System.Drawing.Size(1024, 681);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.refreshButton);
@@ -333,7 +314,6 @@
             this.Controls.Add(this.viewimage);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.backButton);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ImageForm";
             this.Text = "ImageForm";
             this.Load += new System.EventHandler(this.ImageForm_Load);

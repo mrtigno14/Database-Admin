@@ -37,7 +37,10 @@
             this.amount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // backButton
@@ -144,12 +147,35 @@
             this.panel1.Size = new System.Drawing.Size(426, 197);
             this.panel1.TabIndex = 31;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Location = new System.Drawing.Point(0, 633);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1024, 51);
+            this.panel2.TabIndex = 32;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.White;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
+            this.label7.Location = new System.Drawing.Point(376, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(283, 17);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "© 2024 LMMN, Inc. All rights reserved";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // CoinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(1024, 681);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.coinAmount);
             this.Controls.Add(this.label1);
@@ -161,6 +187,8 @@
             this.Load += new System.EventHandler(this.CoinForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,5 +205,7 @@
         private System.Windows.Forms.TextBox amount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label7;
     }
 }
