@@ -115,6 +115,10 @@ namespace Admin
                         label.ForeColor = Color.Red; // Set color as desired
                         label.AutoSize = true;
                         label.Location = new Point(0, newY);
+
+                        // Adjust font size
+                        label.Font = new Font(label.Font.FontFamily, 12, label.Font.Style);
+
                         NotificationText.Controls.Add(label);
 
                         // Show MyAlert form as a pop-up notification

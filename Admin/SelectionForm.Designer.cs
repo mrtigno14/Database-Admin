@@ -48,7 +48,7 @@
             this.suggestionButton.BackColor = System.Drawing.Color.White;
             this.suggestionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suggestionButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.suggestionButton.Location = new System.Drawing.Point(410, 300);
+            this.suggestionButton.Location = new System.Drawing.Point(410, 247);
             this.suggestionButton.Name = "suggestionButton";
             this.suggestionButton.Size = new System.Drawing.Size(211, 61);
             this.suggestionButton.TabIndex = 4;
@@ -61,7 +61,7 @@
             this.medicineButton.BackColor = System.Drawing.Color.White;
             this.medicineButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.medicineButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.medicineButton.Location = new System.Drawing.Point(410, 209);
+            this.medicineButton.Location = new System.Drawing.Point(410, 156);
             this.medicineButton.Name = "medicineButton";
             this.medicineButton.Size = new System.Drawing.Size(211, 61);
             this.medicineButton.TabIndex = 5;
@@ -86,7 +86,7 @@
             // 
             this.imageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imageButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.imageButton.Location = new System.Drawing.Point(410, 396);
+            this.imageButton.Location = new System.Drawing.Point(410, 343);
             this.imageButton.Name = "imageButton";
             this.imageButton.Size = new System.Drawing.Size(211, 61);
             this.imageButton.TabIndex = 18;
@@ -98,7 +98,7 @@
             // 
             this.salesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salesButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.salesButton.Location = new System.Drawing.Point(410, 488);
+            this.salesButton.Location = new System.Drawing.Point(410, 435);
             this.salesButton.Name = "salesButton";
             this.salesButton.Size = new System.Drawing.Size(211, 61);
             this.salesButton.TabIndex = 19;
@@ -111,7 +111,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(301, 140);
+            this.label5.Location = new System.Drawing.Point(301, 87);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(470, 29);
             this.label5.TabIndex = 20;
@@ -134,24 +134,24 @@
             // 
             this.NotificationText.Location = new System.Drawing.Point(3, 3);
             this.NotificationText.Name = "NotificationText";
-            this.NotificationText.Size = new System.Drawing.Size(232, 552);
+            this.NotificationText.Size = new System.Drawing.Size(232, 653);
             this.NotificationText.TabIndex = 0;
             // 
             // NotificationPanel
             // 
             this.NotificationPanel.BackColor = System.Drawing.Color.White;
             this.NotificationPanel.Controls.Add(this.NotificationText);
-            this.NotificationPanel.Location = new System.Drawing.Point(776, 85);
+            this.NotificationPanel.Location = new System.Drawing.Point(11, 11);
             this.NotificationPanel.Margin = new System.Windows.Forms.Padding(2);
             this.NotificationPanel.Name = "NotificationPanel";
-            this.NotificationPanel.Size = new System.Drawing.Size(238, 558);
+            this.NotificationPanel.Size = new System.Drawing.Size(238, 659);
             this.NotificationPanel.TabIndex = 22;
             // 
             // coinButton
             // 
             this.coinButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coinButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.coinButton.Location = new System.Drawing.Point(410, 579);
+            this.coinButton.Location = new System.Drawing.Point(410, 526);
             this.coinButton.Name = "coinButton";
             this.coinButton.Size = new System.Drawing.Size(211, 61);
             this.coinButton.TabIndex = 23;
