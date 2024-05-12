@@ -27,9 +27,6 @@ namespace Admin
         private string password;
         private bool isPanelVisible = false;
         private List<int> previousValues = new List<int>();
-        private int previousWaterLevel = -1;
-        private System.Windows.Forms.Timer timer;
-
 
         public SelectionForm(string username, string password)
         {
@@ -45,11 +42,7 @@ namespace Admin
             // Set form location to center of the desktop resolution
             this.StartPosition = FormStartPosition.Manual;
             CenterFormOnScreen();
-            // Set up timer
-            timer = new System.Windows.Forms.Timer();
-            timer.Interval = 10000; // Update every 10 seconds (adjust as needed)
-            timer.Tick += Timer_Tick;
-            timer.Start();
+            
 
             // Initialize Firebase client
             try
@@ -78,28 +71,22 @@ namespace Admin
             }
         }
 
-        private async void Timer_Tick(object sender, EventArgs e)
-        {
-            await UpdateNotificationPanel();
-            await UpdateWaterNotificationPanel();
-        }
-
         private async Task UpdateNotificationPanel()
         {
             try
             {
                 // Get the value of "available" node inside "Sukli"
-                FirebaseResponse response = await client.GetAsync("Sukli/01/available");
-                int availableValue = response.ResultAs<int>();
+                FirebaseResponse sukliResponse = await client.GetAsync("Sukli/01/available");
+                int sukliValue = sukliResponse.ResultAs<int>();
 
-                // If available value is within range and different from previous values, create/update label in NotificationPanel
-                if (availableValue < 30 && !previousValues.Contains(availableValue))
+                // If available value of Sukli is within range and different from previous values, create/update label in NotificationPanel
+                if (sukliValue < 30 && !previousValues.Contains(sukliValue))
                 {
                     // Add the new value to the list of previous values
-                    previousValues.Add(availableValue);
+                    previousValues.Add(sukliValue);
 
-                    // Convert availableValue to string
-                    string stringValue = availableValue.ToString();
+                    // Convert sukliValue to string
+                    string sukliString = sukliValue.ToString();
 
                     // Calculate the Y-coordinate position of the new label
                     int newY = 0;
@@ -111,21 +98,59 @@ namespace Admin
                     // Update the UI controls from the UI thread
                     Invoke((MethodInvoker)delegate
                     {
-                        // Create and add a new label to the panel
-                        Label label = new Label();
-                        label.Text = "The coin change is " + stringValue + " left!";
-                        label.ForeColor = Color.Red; // Set color as desired
-                        label.AutoSize = true;
-                        label.Location = new Point(0, newY);
+                        // Create and add a new label for Sukli to the panel
+                        Label sukliLabel = new Label();
+                        sukliLabel.Text = "The coin change is " + sukliString + " left!";
+                        sukliLabel.ForeColor = Color.Red; // Set color as desired
+                        sukliLabel.AutoSize = true;
+                        sukliLabel.Location = new Point(0, newY);
 
                         // Adjust font size
-                        label.Font = new Font(label.Font.FontFamily, 12, label.Font.Style);
+                        sukliLabel.Font = new Font(sukliLabel.Font.FontFamily, 12, sukliLabel.Font.Style);
 
-                        NotificationText.Controls.Add(label);
+                        NotificationText.Controls.Add(sukliLabel);
 
                         // Show MyAlert form as a pop-up notification
                         MyAlert alertForm = new MyAlert();
-                        alertForm.ShowAlert(label.Text);
+                        alertForm.ShowAlert(sukliLabel.Text);
+                    });
+                }
+
+                // Get the value of "available" node inside "WaterLevel"
+                FirebaseResponse waterLevelResponse = await client.GetAsync("WaterLevel/01/available");
+                int waterLevelValue = waterLevelResponse.ResultAs<int>();
+
+                // If available value of WaterLevel is within range and different from previous values, create/update label in NotificationPanel
+                if (!previousValues.Contains(waterLevelValue))
+                {
+                    // Add the new value to the list of previous values
+                    previousValues.Add(waterLevelValue);
+
+                    // Calculate the Y-coordinate position of the new label
+                    int newY = 0;
+                    if (NotificationText.Controls.Count > 0)
+                    {
+                        newY = NotificationText.Controls[NotificationText.Controls.Count - 1].Location.Y + NotificationText.Controls[NotificationText.Controls.Count - 1].Height + 5; // Add padding between labels
+                    }
+
+                    // Update the UI controls from the UI thread
+                    Invoke((MethodInvoker)delegate
+                    {
+                        // Create and add a new label for WaterLevel to the panel
+                        Label waterLevelLabel = new Label();
+                        waterLevelLabel.Text = waterLevelValue == 0 ? "The water tank is EMPTY!" : "The water tank is LOW!";
+                        waterLevelLabel.ForeColor = waterLevelValue == 0 ? Color.Red : Color.Blue; // Set color based on water level
+                        waterLevelLabel.AutoSize = true;
+                        waterLevelLabel.Location = new Point(0, newY);
+
+                        // Adjust font size
+                        waterLevelLabel.Font = new Font(waterLevelLabel.Font.FontFamily, 12, waterLevelLabel.Font.Style);
+
+                        NotificationText.Controls.Add(waterLevelLabel);
+
+                        // Show MyAlert form as a pop-up notification
+                        MyAlert alertForm = new MyAlert();
+                        alertForm.ShowAlert(waterLevelLabel.Text);
                     });
                 }
             }
@@ -134,80 +159,6 @@ namespace Admin
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
-        private async Task UpdateWaterNotificationPanel()
-        {
-            try
-            {
-                // Get the value of "available" node inside "WaterLevel"
-                FirebaseResponse waterLevelResponse = await client.GetAsync("WaterLevel/01/available");
-                int waterLevelAvailableValue = waterLevelResponse.ResultAs<int>();
-
-                // Check if the fetched value is different from the previous one
-                if (waterLevelAvailableValue != previousWaterLevel)
-                {
-                    previousWaterLevel = waterLevelAvailableValue; // Update previous value
-
-                    // Check water level
-                    if (waterLevelAvailableValue < 25 && waterLevelAvailableValue > 0)
-                    {
-                        // Calculate the Y-coordinate position of the new label
-                        int newY = 0;
-                        if (NotificationText.Controls.Count > 0)
-                        {
-                            newY = NotificationText.Controls[NotificationText.Controls.Count - 1].Location.Y + NotificationText.Controls[NotificationText.Controls.Count - 1].Height + 5; // Add padding between labels
-                        }
-
-                        // Water tank is low
-                        Invoke((MethodInvoker)delegate
-                        {
-                            // Create and add a new label for water level to the panel
-                            Label waterLevelLabel = new Label();
-                            waterLevelLabel.Text = "The water tank is LOW!";
-                            waterLevelLabel.ForeColor = Color.Blue; // Set color as desired
-                            waterLevelLabel.AutoSize = true;
-                            waterLevelLabel.Location = new Point(0, newY);
-
-                            // Adjust font size
-                            waterLevelLabel.Font = new Font(waterLevelLabel.Font.FontFamily, 12, waterLevelLabel.Font.Style);
-
-                            NotificationText.Controls.Add(waterLevelLabel);
-                        });
-                    }
-                    else if (waterLevelAvailableValue == 0)
-                    {
-                        // Calculate the Y-coordinate position of the new label
-                        int newY = 0;
-                        if (NotificationText.Controls.Count > 0)
-                        {
-                            newY = NotificationText.Controls[NotificationText.Controls.Count - 1].Location.Y + NotificationText.Controls[NotificationText.Controls.Count - 1].Height + 5; // Add padding between labels
-                        }
-
-                        // Water tank is empty
-                        Invoke((MethodInvoker)delegate
-                        {
-                            // Create and add a new label for water level to the panel
-                            Label waterLevelLabel = new Label();
-                            waterLevelLabel.Text = "The water tank is EMPTY!";
-                            waterLevelLabel.ForeColor = Color.Red; // Set color as desired
-                            waterLevelLabel.AutoSize = true;
-                            waterLevelLabel.Location = new Point(0, newY);
-
-                            // Adjust font size
-                            waterLevelLabel.Font = new Font(waterLevelLabel.Font.FontFamily, 12, waterLevelLabel.Font.Style);
-
-                            NotificationText.Controls.Add(waterLevelLabel);
-                        });
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
-
-
 
         private void CenterFormOnScreen()
         {
