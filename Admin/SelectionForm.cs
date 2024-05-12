@@ -27,6 +27,7 @@ namespace Admin
         private string password;
         private bool isPanelVisible = false;
         private List<int> previousValues = new List<int>();
+        private int previousWaterLevel = -1;
         private System.Windows.Forms.Timer timer;
 
 
@@ -80,6 +81,7 @@ namespace Admin
         private async void Timer_Tick(object sender, EventArgs e)
         {
             await UpdateNotificationPanel();
+            await UpdateWaterNotificationPanel();
         }
 
         private async Task UpdateNotificationPanel()
@@ -133,6 +135,78 @@ namespace Admin
             }
         }
 
+        private async Task UpdateWaterNotificationPanel()
+        {
+            try
+            {
+                // Get the value of "available" node inside "WaterLevel"
+                FirebaseResponse waterLevelResponse = await client.GetAsync("WaterLevel/01/available");
+                int waterLevelAvailableValue = waterLevelResponse.ResultAs<int>();
+
+                // Check if the fetched value is different from the previous one
+                if (waterLevelAvailableValue != previousWaterLevel)
+                {
+                    previousWaterLevel = waterLevelAvailableValue; // Update previous value
+
+                    // Check water level
+                    if (waterLevelAvailableValue < 25 && waterLevelAvailableValue > 0)
+                    {
+                        // Calculate the Y-coordinate position of the new label
+                        int newY = 0;
+                        if (NotificationText.Controls.Count > 0)
+                        {
+                            newY = NotificationText.Controls[NotificationText.Controls.Count - 1].Location.Y + NotificationText.Controls[NotificationText.Controls.Count - 1].Height + 5; // Add padding between labels
+                        }
+
+                        // Water tank is low
+                        Invoke((MethodInvoker)delegate
+                        {
+                            // Create and add a new label for water level to the panel
+                            Label waterLevelLabel = new Label();
+                            waterLevelLabel.Text = "The water tank is LOW!";
+                            waterLevelLabel.ForeColor = Color.Blue; // Set color as desired
+                            waterLevelLabel.AutoSize = true;
+                            waterLevelLabel.Location = new Point(0, newY);
+
+                            // Adjust font size
+                            waterLevelLabel.Font = new Font(waterLevelLabel.Font.FontFamily, 12, waterLevelLabel.Font.Style);
+
+                            NotificationText.Controls.Add(waterLevelLabel);
+                        });
+                    }
+                    else if (waterLevelAvailableValue == 0)
+                    {
+                        // Calculate the Y-coordinate position of the new label
+                        int newY = 0;
+                        if (NotificationText.Controls.Count > 0)
+                        {
+                            newY = NotificationText.Controls[NotificationText.Controls.Count - 1].Location.Y + NotificationText.Controls[NotificationText.Controls.Count - 1].Height + 5; // Add padding between labels
+                        }
+
+                        // Water tank is empty
+                        Invoke((MethodInvoker)delegate
+                        {
+                            // Create and add a new label for water level to the panel
+                            Label waterLevelLabel = new Label();
+                            waterLevelLabel.Text = "The water tank is EMPTY!";
+                            waterLevelLabel.ForeColor = Color.Red; // Set color as desired
+                            waterLevelLabel.AutoSize = true;
+                            waterLevelLabel.Location = new Point(0, newY);
+
+                            // Adjust font size
+                            waterLevelLabel.Font = new Font(waterLevelLabel.Font.FontFamily, 12, waterLevelLabel.Font.Style);
+
+                            NotificationText.Controls.Add(waterLevelLabel);
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
 
 
         private void CenterFormOnScreen()
@@ -149,9 +223,6 @@ namespace Admin
             // Set the form's location to the calculated center position
             this.Location = new Point(centerX, centerY);
         }
-
-      
-
 
         private void suggestionButton_Click(object sender, EventArgs e)
         {
