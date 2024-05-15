@@ -205,6 +205,7 @@ namespace Admin
 
         private void SelectionForm_Load(object sender, EventArgs e)
         {
+            this.Click += SelectionForm_Click;
             // Add code to detect whether the user is logged in
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
@@ -229,6 +230,11 @@ namespace Admin
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void SelectionForm_Click(object sender, EventArgs e)
+        {
+            this.ActiveControl = null;
         }
 
         private void imageButton_Click(object sender, EventArgs e)

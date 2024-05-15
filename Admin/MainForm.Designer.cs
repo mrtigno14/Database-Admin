@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.viewmedicine = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
@@ -57,6 +52,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.viewmedicine)).BeginInit();
             this.panel1.SuspendLayout();
             this.ProductDetailsPanel.SuspendLayout();
@@ -83,57 +83,18 @@
             this.viewmedicine.TabIndex = 1;
             this.viewmedicine.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.viewmedicine_CellContentClick);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 54;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Name";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Price";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 69;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Quantity";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 54;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "fileUrl";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 125;
-            // 
             // addButton
             // 
             this.addButton.BackColor = System.Drawing.Color.White;
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.addButton.Location = new System.Drawing.Point(140, 441);
+            this.addButton.Location = new System.Drawing.Point(379, 69);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(85, 30);
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Visible = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // removeButton
@@ -141,12 +102,13 @@
             this.removeButton.BackColor = System.Drawing.Color.White;
             this.removeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.removeButton.Location = new System.Drawing.Point(140, 482);
+            this.removeButton.Location = new System.Drawing.Point(281, 69);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(85, 30);
             this.removeButton.TabIndex = 3;
             this.removeButton.Text = "Remove";
             this.removeButton.UseVisualStyleBackColor = false;
+            this.removeButton.Visible = false;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // updateButton
@@ -154,7 +116,7 @@
             this.updateButton.BackColor = System.Drawing.Color.White;
             this.updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.updateButton.Location = new System.Drawing.Point(246, 441);
+            this.updateButton.Location = new System.Drawing.Point(140, 441);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(85, 30);
             this.updateButton.TabIndex = 4;
@@ -167,7 +129,7 @@
             this.retrieveButton.BackColor = System.Drawing.Color.White;
             this.retrieveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.retrieveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.retrieveButton.Location = new System.Drawing.Point(246, 482);
+            this.retrieveButton.Location = new System.Drawing.Point(246, 441);
             this.retrieveButton.Name = "retrieveButton";
             this.retrieveButton.Size = new System.Drawing.Size(85, 30);
             this.retrieveButton.TabIndex = 5;
@@ -366,13 +328,53 @@
             this.refreshButton.BackColor = System.Drawing.Color.White;
             this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refreshButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(202)))), ((int)(((byte)(94)))));
-            this.refreshButton.Location = new System.Drawing.Point(193, 518);
+            this.refreshButton.Location = new System.Drawing.Point(194, 482);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(85, 30);
             this.refreshButton.TabIndex = 23;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = false;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 54;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Name";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Price";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 69;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Quantity";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 54;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "fileUrl";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 143;
             // 
             // MainForm
             // 
@@ -430,11 +432,11 @@
         private System.Windows.Forms.ComboBox idComboBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RichTextBox url;
+        private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Button refreshButton;
     }
 }
