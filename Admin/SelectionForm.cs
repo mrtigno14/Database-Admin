@@ -27,6 +27,7 @@ namespace Admin
         private string password;
         private bool isPanelVisible = false;
         private List<int> previousValues = new List<int>();
+        private List<string> previousWaterValues = new List<string>();
 
         public SelectionForm(string username, string password)
         {
@@ -118,13 +119,13 @@ namespace Admin
 
                 // Get the value of "available" node inside "WaterLevel"
                 FirebaseResponse waterLevelResponse = await client.GetAsync("WaterLevel/01/available");
-                int waterLevelValue = waterLevelResponse.ResultAs<int>();
+                string waterLevelValue = waterLevelResponse.ResultAs<string>();
 
                 // If available value of WaterLevel is within range and different from previous values, create/update label in NotificationPanel
-                if (!previousValues.Contains(waterLevelValue))
+                if (!previousWaterValues.Contains(waterLevelValue))
                 {
                     // Add the new value to the list of previous values
-                    previousValues.Add(waterLevelValue);
+                    previousWaterValues.Add(waterLevelValue);
 
                     // Calculate the Y-coordinate position of the new label
                     int newY = 0;
@@ -138,8 +139,29 @@ namespace Admin
                     {
                         // Create and add a new label for WaterLevel to the panel
                         Label waterLevelLabel = new Label();
-                        waterLevelLabel.Text = waterLevelValue == 0 ? "The water tank is EMPTY!" : "The water tank is LOW!";
-                        waterLevelLabel.ForeColor = waterLevelValue == 0 ? Color.Red : Color.Blue; // Set color based on water level
+
+                        // Set the text and color based on the water level value
+                        switch (waterLevelValue)
+                        {
+                            case "EMPTY":
+                                waterLevelLabel.Text = "The water tank is EMPTY!";
+                                waterLevelLabel.ForeColor = Color.Red;
+                                break;
+                            case "LOW":
+                                waterLevelLabel.Text = "The water tank is LOW!";
+                                waterLevelLabel.ForeColor = Color.Blue;
+                                break;
+                            /*case "HIGH":
+                                waterLevelLabel.Text = "The water tank is HIGH!";
+                                waterLevelLabel.ForeColor = Color.Green;
+                                break;*/
+                            default:
+                                // Handle unexpected value
+                                waterLevelLabel.Text = "Unknown water level";
+                                waterLevelLabel.ForeColor = Color.Black;
+                                break;
+                        }
+
                         waterLevelLabel.AutoSize = true;
                         waterLevelLabel.Location = new Point(0, newY);
 
@@ -159,6 +181,7 @@ namespace Admin
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
         private void CenterFormOnScreen()
         {
