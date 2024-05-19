@@ -28,6 +28,8 @@ namespace Admin
         private bool isPanelVisible = false;
         private List<int> previousValues = new List<int>();
         private List<string> previousWaterValues = new List<string>();
+        private List<string> previousMedicineStockAlerts = new List<string>();
+        
 
         public SelectionForm(string username, string password)
         {
@@ -155,11 +157,6 @@ namespace Admin
                                 waterLevelLabel.Text = "The water tank is HIGH!";
                                 waterLevelLabel.ForeColor = Color.Green;
                                 break;*/
-                            default:
-                                // Handle unexpected value
-                                waterLevelLabel.Text = "Unknown water level";
-                                waterLevelLabel.ForeColor = Color.Black;
-                                break;
                         }
 
                         waterLevelLabel.AutoSize = true;
@@ -174,6 +171,45 @@ namespace Admin
                         MyAlert alertForm = new MyAlert();
                         alertForm.ShowAlert(waterLevelLabel.Text);
                     });
+                }
+                // Get the values of "itemStock" nodes inside "VendingMachine"
+                FirebaseResponse vendingMachineResponse = await client.GetAsync("VendingMachine");
+                var vendingMachineData = vendingMachineResponse.ResultAs<Dictionary<string, VendingMachine>>();
+
+                foreach (var item in vendingMachineData)
+                {
+                    if (int.TryParse(item.Value.itemStock, out int itemStock) && itemStock == 0 && !previousMedicineStockAlerts.Contains(item.Value.itemName))
+                    {
+                        // Add the item name to the list of previous medicine stock alerts
+                        previousMedicineStockAlerts.Add(item.Value.itemName);
+
+                        // Calculate the Y-coordinate position of the new label
+                        int newY = 0;
+                        if (NotificationText.Controls.Count > 0)
+                        {
+                            newY = NotificationText.Controls[NotificationText.Controls.Count - 1].Location.Y + NotificationText.Controls[NotificationText.Controls.Count - 1].Height + 5; // Add padding between labels
+                        }
+
+                        // Update the UI controls from the UI thread
+                        Invoke((MethodInvoker)delegate
+                        {
+                            // Create and add a new label for the medicine stock alert to the panel
+                            Label medicineStockLabel = new Label();
+                            medicineStockLabel.Text = item.Value.itemName + " needs restocking!";
+                            medicineStockLabel.ForeColor = Color.Red; // Set color as desired
+                            medicineStockLabel.AutoSize = true;
+                            medicineStockLabel.Location = new Point(0, newY);
+
+                            // Adjust font size
+                            medicineStockLabel.Font = new Font(medicineStockLabel.Font.FontFamily, 12, medicineStockLabel.Font.Style);
+
+                            NotificationText.Controls.Add(medicineStockLabel);
+
+                            // Show MyAlert form as a pop-up notification
+                            MyAlert alertForm = new MyAlert();
+                            alertForm.ShowAlert(medicineStockLabel.Text);
+                        });
+                    }
                 }
             }
             catch (Exception ex)
