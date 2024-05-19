@@ -83,7 +83,7 @@ namespace Admin
                 int sukliValue = sukliResponse.ResultAs<int>();
 
                 // If available value of Sukli is within range and different from previous values, create/update label in NotificationPanel
-                if (sukliValue < 30 && !previousValues.Contains(sukliValue))
+                if ((sukliValue < 30 || sukliValue == 0) && !previousValues.Contains(sukliValue))
                 {
                     // Add the new value to the list of previous values
                     previousValues.Add(sukliValue);
@@ -103,7 +103,14 @@ namespace Admin
                     {
                         // Create and add a new label for Sukli to the panel
                         Label sukliLabel = new Label();
-                        sukliLabel.Text = "The coin change is " + sukliString + " left!";
+                        if (sukliValue == 0)
+                        {
+                            sukliLabel.Text = "The coin change is EMPTY!";
+                        }
+                        else
+                        {
+                            sukliLabel.Text = "The coin change is " + sukliString + " left!";
+                        }
                         sukliLabel.ForeColor = Color.Red; // Set color as desired
                         sukliLabel.AutoSize = true;
                         sukliLabel.Location = new Point(0, newY);

@@ -132,6 +132,7 @@
             // 
             // NotificationText
             // 
+            this.NotificationText.AutoScroll = true;
             this.NotificationText.Location = new System.Drawing.Point(3, 3);
             this.NotificationText.Name = "NotificationText";
             this.NotificationText.Size = new System.Drawing.Size(232, 653);
