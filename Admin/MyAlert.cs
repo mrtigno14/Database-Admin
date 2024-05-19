@@ -13,6 +13,7 @@ namespace Admin
     public partial class MyAlert : Form
     {
         private Timer closeTimer;
+
         public MyAlert()
         {
             InitializeComponent();
