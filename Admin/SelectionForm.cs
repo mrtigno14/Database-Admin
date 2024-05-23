@@ -27,7 +27,6 @@ namespace Admin
         private string password;
         private bool isPanelVisible = false;
         private List<int> previousValues = new List<int>();
-        private List<string> previousWaterValues = new List<string>();
         private List<string> previousMedicineStockAlerts = new List<string>();
         
 
@@ -126,59 +125,6 @@ namespace Admin
                     });
                 }
 
-                // Get the value of "available" node inside "WaterLevel"
-                FirebaseResponse waterLevelResponse = await client.GetAsync("WaterLevel/01/available");
-                string waterLevelValue = waterLevelResponse.ResultAs<string>();
-
-                // If available value of WaterLevel is within range and different from previous values, create/update label in NotificationPanel
-                if (!previousWaterValues.Contains(waterLevelValue))
-                {
-                    // Add the new value to the list of previous values
-                    previousWaterValues.Add(waterLevelValue);
-
-                    // Calculate the Y-coordinate position of the new label
-                    int newY = 0;
-                    if (NotificationText.Controls.Count > 0)
-                    {
-                        newY = NotificationText.Controls[NotificationText.Controls.Count - 1].Location.Y + NotificationText.Controls[NotificationText.Controls.Count - 1].Height + 5; // Add padding between labels
-                    }
-
-                    // Update the UI controls from the UI thread
-                    Invoke((MethodInvoker)delegate
-                    {
-                        // Create and add a new label for WaterLevel to the panel
-                        Label waterLevelLabel = new Label();
-
-                        // Set the text and color based on the water level value
-                        switch (waterLevelValue)
-                        {
-                            case "EMPTY":
-                                waterLevelLabel.Text = "The water tank is EMPTY!";
-                                waterLevelLabel.ForeColor = Color.Red;
-                                break;
-                            case "LOW":
-                                waterLevelLabel.Text = "The water tank is LOW!";
-                                waterLevelLabel.ForeColor = Color.Blue;
-                                break;
-                            /*case "HIGH":
-                                waterLevelLabel.Text = "The water tank is HIGH!";
-                                waterLevelLabel.ForeColor = Color.Green;
-                                break;*/
-                        }
-
-                        waterLevelLabel.AutoSize = true;
-                        waterLevelLabel.Location = new Point(0, newY);
-
-                        // Adjust font size
-                        waterLevelLabel.Font = new Font(waterLevelLabel.Font.FontFamily, 12, waterLevelLabel.Font.Style);
-
-                        NotificationText.Controls.Add(waterLevelLabel);
-
-                        // Show MyAlert form as a pop-up notification
-                        MyAlert alertForm = new MyAlert();
-                        alertForm.ShowAlert(waterLevelLabel.Text);
-                    });
-                }
                 // Get the values of "itemStock" nodes inside "VendingMachine"
                 FirebaseResponse vendingMachineResponse = await client.GetAsync("VendingMachine");
                 var vendingMachineData = vendingMachineResponse.ResultAs<Dictionary<string, VendingMachine>>();
